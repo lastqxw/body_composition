@@ -1,0 +1,18 @@
+{
+  "list|8": [
+    {
+      "id|+1": "@id()",
+      "accountPeriod": "@datetime()",
+      "totalSum|1-100.1-10": 1,
+      "cash|1-100.1-10": 1,
+      "goldCommon|1-100.1-10": 1,
+      "transactionNumber|1-10": 1,
+      "budgetRatio|.1-10": 1,
+      "balanceRecharge|1-100.1-10": 1,
+      "balanceLiquidation|1-100.1-10": 1,
+      "cashBalance|1-100.1-10": 1,
+      "goldCommonBalance|1-100.1-10": 1,
+      "permanentGoldBalance|1-100.1-10": 1
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-05-22 06:15:58
+ * @LastEditTime: 2020-06-18 16:19:22
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /ido85-pay_web_site-pay_web_site-paymentSystem/public/index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="format-detection" content="telephone=yes" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+  <title>hybrid</title>
+  <script>
+    var device = "";
+    var ua = navigator.userAgent;
+    if (/(iPhone|iPad|iPod|iOS)/i.test(ua)) {
+      device = "IOS";
+    } else if (/(Android)/i.test(ua)) {
+      device = "Android";
+    }
+    //注册回调函数，第一次连接时调用 初始化函数
+    if (device == "Android") {
+      function connectWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) {
+          callback(WebViewJavascriptBridge);
+        } else {
+          document.addEventListener(
+            "WebViewJavascriptBridgeReady",
+            function () {
+              callback(WebViewJavascriptBridge);
+            },
+            false
+          );
+        }
+      }
+      connectWebViewJavascriptBridge(function (bridge) {
+        //初始化
+        bridge.init(function (message, responseCallback) {
+          var data = {
+            "Javascript Responds": "Wee!"
+          };
+          responseCallback(data);
+        });
+
+        //Android调用js方法：functionInJs方法名称需要保持一致 ，并返回给Android通知
+
+        bridge.registerHandler("getOrderType", function (
+          data,
+          responseCallback
+        ) {
+          localStorage.setItem("h5", "");
+          localStorage.setItem("h5", data);
+          var responseData = "我是Android调用js方法返回的数据---" + data;
+          responseCallback(responseData);
+        });
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but hybrid doesn't work properly without JavaScript
+      enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+</body>
+
+</html>
