@@ -92,8 +92,8 @@ export default {
       billList: [], //账单交易类型
       payList: [], //支付方式
       imgList: [], //图片集合
-      appId: '', //appId
-      userId: null, //userId
+      appId: '123', //appId
+      userId: 17364, //userId
       type: 3, //账单类型0 现金零钱 1 通用代币 2 专用代币  3 all
       outMoney: null, //支出金额
       inMoney: null, //收入金额

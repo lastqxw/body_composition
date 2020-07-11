@@ -121,8 +121,8 @@ export default {
   },
   created() {
     this.getQueryListPayment();
-    // this.getBalanceType();
-    // this.getOrderList();
+    this.getBalanceType();
+    this.getOrderList();
   },
   methods: {
     getUserInfo() {

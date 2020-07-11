@@ -7,7 +7,7 @@
       <p class="billMoney">
         <span>订单金额</span><span>{{details.orderFee}}</span>
       </p>
-      <p v-if="details.reduceFee !='0.00' || details.reduceFee>0" class="billMoney">
+      <p v-if="details.paymentCode !='CZ' && details.reduceFee !='0.00' || details.reduceFee>0" class="billMoney">
         <span style="color:#EB584A">代金券金额</span>
         <span style="color:#EB584A">-{{details.reduceFee}}</span>
       </p>
@@ -43,12 +43,10 @@
         <span>{{details.paymentName}}</span>
       </div>
     </div>
-    <div class="footer">
+    <div class="footer" v-if="details.paymentCode==='ZC'">
       <md-field style="padding:0px;">
-        <template v-if="details.paymentCode==='ZC'">
-          <md-cell-item title="彼此的历史交易记录" arrow @click="onClick" />
-          <md-cell-item title="联系" arrow @click="showStore" />
-        </template>
+        <md-cell-item title="彼此的历史交易记录" arrow @click="onClick" />
+        <md-cell-item title="联系" arrow @click="showStore" />
         <!-- <md-cell-item title="帮助" arrow /> -->
       </md-field>
     </div>
