@@ -85,26 +85,8 @@ export const getToken = () => {
   if (token && token !== "undefined") return token;
   return false;
 };
-export function imgList(type) {
-  let imgListPage = {
-    CZ: require("@/assets/images/CZ.png"),
-    TX: require("@/assets/images/TX.png"),
-    ZZ: require("@/assets/images/TX.png"),
-    ZC: require("@/assets/images/ZC.png"),
-    RP: require("@/assets/images/RP.png"),
-    TK: require("@/assets/images/TX.png"),
-    ZJCCZ: require("@/assets/images/ZJCCZ.png"),
-    APPZZ: require("@/assets/images/ZJCCZ.png"),
-    YETH:require("@/assets/images/GQYE.png"),
-    0: require("@/assets/images/XJ.png"),
-    5: require("@/assets/images/XJYE.png"),
-    1: require("@/assets/images/TYDB.png"),
-    2: require("@/assets/images/ZDDB.png")
-  };
-  return imgListPage[type];
-}
 export function flitterMouthType(arr) {
-  console.log(arr);
+
   arr.forEach(x => {
     x.accessTime = dayjs(x.accessTime).format("YYYY年M月");
   });
@@ -152,7 +134,7 @@ function mapLocation(arr) {
 // 数组去重
 function unique(arr) {
   if (!Array.isArray(arr)) {
-    console.log("type error!");
+
     return;
   }
   return Array.prototype.filter.call(arr, function(item, index) {
