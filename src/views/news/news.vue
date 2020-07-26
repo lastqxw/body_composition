@@ -1,17 +1,17 @@
 <template>
   <div class="container" v-if="data">
-    <div class="title">{{data.articleTitle}}</div>
+    <div class="title">{{data.artTitle}}</div>
     <div class="subtitle">
-      <span style="margin-right: 20px;color:#000">{{data.createUser}}</span>
-      <span>{{data.createTime}}</span>
+      <span style="margin-right: 20px;color:#000">{{data.classifyName}}</span>
+      <span>{{data.artDate}}</span>
     </div>
     <hr style="margin:10px">
-    <div class="artical" v-html="data.articleContent"></div>
+    <div class="artical" v-html="data.artContent"></div>
   </div>
 </template>
 <script>
 import dayjs from 'dayjs';
-import { details } from '../../api';
+import { articleNews } from '../../api';
 export default {
   name: 'home',
   data() {
@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     getDetails(id, token) {
-      details(id).then((res) => {
+      articleNews(id).then((res) => {
         console.log(res);
         if (res.data.type == 0) {
           this.data = res.data.data;

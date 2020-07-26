@@ -1,17 +1,24 @@
 <template>
   <div class="container" v-if="data">
     <div class="title">{{data.articleTitle}}</div>
+    <div style="text-align: right;width:100%">{{data.createTime}}</div>
     <div class="subtitle">
-      <span style="margin-right: 20px;color:#000">{{data.createUser}}</span>
-      <span>{{data.createTime}}</span>
+      <div class="left">
+        <img :src="data.userAvatarurl" alt="" srcset="">
+      </div>
+      <div class="right">
+        <p>{{data.articleAuthorName}}</p>
+        <p>{{data.userIntro}}</p>
+      </div>
     </div>
     <hr style="margin:10px">
+    <img :src="data.articleImgBanner" style="width:100%;margin-bottom:10px">
     <div class="artical" v-html="data.articleContent"></div>
   </div>
 </template>
 <script>
 import dayjs from 'dayjs';
-import { details } from '../../api';
+import { bbsDetails } from '../../api';
 export default {
   name: 'home',
   data() {
@@ -26,7 +33,7 @@ export default {
   },
   methods: {
     getDetails(id, token) {
-      details(id).then((res) => {
+      bbsDetails(id).then((res) => {
         console.log(res);
         if (res.data.type == 0) {
           this.data = res.data.data;
@@ -58,9 +65,29 @@ export default {
 }
 .subtitle {
   font-size: 14px;
-  margin: 16px 0px 32px 0px;
-  text-align: center;
-  span:first {
+  margin: 16px 0px;
+  overflow: hidden;
+  .left {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 14px;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+    }
+  }
+  .right {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 28px;
+    p:first-child {
+      font-size: 14px;
+      color: #000;
+    }
+    p:last-child {
+      font-size: 12px;
+    }
   }
 }
 /deep/.artical {

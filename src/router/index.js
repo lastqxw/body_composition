@@ -11,5 +11,17 @@ export default new Router({
       // component:resolve => require(['@/views/conferenceRoom/conferenceRoom.vue'], resolve)
       component: resolve => require(["@/views/home/home.vue"], resolve)
     },
+    {
+      path: "/news",
+      name: "news",
+      // component:resolve => require(['@/views/conferenceRoom/conferenceRoom.vue'], resolve)
+      component: resolve => require(["@/views/news/news.vue"], resolve)
+    },
+    {
+      path: "/bbs",
+      name: "bbs",
+      // component:resolve => require(['@/views/conferenceRoom/conferenceRoom.vue'], resolve)
+      component: resolve => require(["@/views/bbs/bbs.vue"], resolve)
+    },
   ]
 });
