@@ -1,6 +1,8 @@
 <template>
   <div>
-    阿斯达多撒
+    <div class="artical" v-html="data">
+
+    </div>
   </div>
 </template>
 <script>
@@ -8,23 +10,20 @@ import dayjs from 'dayjs';
 export default {
   name: 'home',
   data() {
-    return {};
+    return {
+      data: null,
+    };
   },
   created() {
-    // js注册方法供原生调用
-    this.$bridge.registerHandler('getData', (data, responseCallback) => {
-      let res = JSON.parse(data);
-      responseCallback(data);
-    });
+    let id = this.$route.params.id;
+    let token = this.$route.params.token;
+    this.getDetails(id, token);
   },
   methods: {
-    // JS调用原生方法
-    getData() {
-      let that = this;
-      this.$bridge.callHandler('getData', {}, (data, responseCallback) => {
-        let res = JSON.parse(data);
-        responseCallback(data);
-      });
+    getDetails(id, token) {
+      let params = {
+        id,
+      };
     },
   },
 };

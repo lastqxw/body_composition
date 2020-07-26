@@ -9,7 +9,7 @@ export default new Router({
       path: "/",
       name: "index",
       // component:resolve => require(['@/views/conferenceRoom/conferenceRoom.vue'], resolve)
-      component: resolve => require(["@/views/composition/composition.vue"], resolve)
+      component: resolve => require(["@/views/home/home.vue"], resolve)
     },
   ]
 });
