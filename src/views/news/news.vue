@@ -1,11 +1,19 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-29 19:15:21
+ * @LastEditTime: 2020-08-01 23:38:40
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /ido85-pay_web_site-pay_web_site-paymentSystem/src/views/news/news.vue
+-->
 <template>
   <div class="container" v-if="data">
     <div class="title">{{data.artTitle}}</div>
     <div class="subtitle">
-      <span style="margin-right: 20px;color:#000">{{data.classifyName}}</span>
-      <span>{{data.artDate}}</span>
+      <span class="left">{{data.classifyName}}</span>
+      <span>{{data.artDate.split(' ')[0]}}</span>
     </div>
-    <hr style="margin:10px">
+    <img :src="data.imgBanner" class="banner">
     <div class="artical" v-html="data.artContent"></div>
   </div>
 </template>
@@ -41,30 +49,45 @@ export default {
 .container {
   width: 100vw;
   height: 100vh;
-  overflow: auto;
-  padding: 15px;
-  overflow: auto;
+  overflow-y: auto;
   background-color: #fff;
   img {
     width: 100%;
   }
 }
 .title {
-  color: #000;
-  font-size: 16px;
-  line-height: 40px;
-  text-align: center;
+  font-size: 20px;
+  font-family: PingFang SC;
+  line-height: 25px;
   font-weight: bold;
+  color: rgba(27, 27, 27, 1);
+  padding: 15px;
 }
 .subtitle {
   font-size: 14px;
-  margin: 16px 0px 32px 0px;
-  text-align: center;
-  span:first {
+  padding: 15px;
+  font-size: 12px;
+  font-family: PingFang SC;
+
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(138, 138, 138, 1);
+  .left {
+    color: #515151;
+    margin-right: 10px;
+    font-style: initial;
   }
 }
+.banner {
+  width: 100%;
+  margin: 16px 0px 20px 0px;
+}
 /deep/.artical {
-  line-height: 2;
+  padding: 0px 15px;
+  font-size: 16px;
+  font-family: PingFang SC;
+  color: rgba(27, 27, 27, 1);
+  line-height: 23px;
   img {
     width: 100%;
   }

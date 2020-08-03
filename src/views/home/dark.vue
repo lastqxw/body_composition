@@ -42,7 +42,7 @@ export default {
   height: 100vh;
   overflow: auto;
   overflow: auto;
-  background-color: #fff;
+  background-color: #303030;
   overflow-x: hidden;
   img {
     width: 100%;
@@ -53,7 +53,7 @@ export default {
   font-family: PingFang SC;
   line-height: 25px;
   font-weight: bold;
-  color: rgba(27, 27, 27, 1);
+  color: #e2e2e2;
   padding: 15px;
 }
 .subtitle {
@@ -64,15 +64,16 @@ export default {
 
   font-weight: 400;
   font-style: italic;
-  color: rgba(138, 138, 138, 1);
+  color: #aeaeae;
   .left {
-    color: #515151;
+    color: #efefef;
     margin-right: 10px;
     font-style: initial;
   }
 }
 /deep/.artical {
   padding: 0px 15px;
+  color: #efefef;
   line-height: 23px;
   img {
     width: 100%;

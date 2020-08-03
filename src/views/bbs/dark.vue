@@ -56,7 +56,7 @@ export default {
   width: 100vw;
   height: 100vh;
   overflow: auto;
-  background-color: #fff;
+  background-color: #303030;
   overflow-x: hidden;
   img {
     width: 100%;
@@ -67,7 +67,7 @@ export default {
   font-family: PingFang SC;
   line-height: 25px;
   font-weight: bold;
-  color: rgba(27, 27, 27, 1);
+  color: #efefef;
   padding: 15px;
 }
 .subtitle {
@@ -92,13 +92,13 @@ export default {
       font-size: 12px;
       font-family: PingFang SC;
       font-weight: 500;
-      color: rgba(63, 73, 84, 1);
+      color: #eeeeee;
     }
     p:last-child {
       font-size: 12px;
       font-family: PingFang SC;
       font-weight: 300;
-      color: rgba(138, 138, 138, 1);
+      color: #aeaeae;
       .role {
         background: rgba(68, 211, 159, 1);
         border-radius: 4px;
@@ -127,7 +127,7 @@ export default {
   font-family: PingFang SC;
   font-weight: 400;
   font-style: italic;
-  color: rgba(138, 138, 138, 1);
+  color: #eaeaea;
   padding-left: 15px;
   margin-bottom: 15px;
 }
@@ -142,7 +142,7 @@ export default {
   font-size: 14px;
   font-family: PingFang SC;
   font-weight: 500;
-  color: rgba(27, 27, 27, 1);
+  color: rgba(239, 239, 239, 1);
   line-height: 19px;
   padding: 0px 15px 15px 15px;
   img {

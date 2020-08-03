@@ -1,16 +1,25 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-08-01 23:34:58
+ * @LastEditTime: 2020-08-01 23:40:58
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /ido85-pay_web_site-pay_web_site-paymentSystem/src/views/news/dark.vue
+-->
 <template>
   <div class="container" v-if="data">
-    <div class="title">{{data.articleTitle}}</div>
+    <div class="title">{{data.artTitle}}</div>
     <div class="subtitle">
-      <span class="left">{{data.createUser}}</span>
-      <span>{{data.createTime.split(' ')[0]}}</span>
+      <span class="left">{{data.classifyName}}</span>
+      <span>{{data.artDate.split(' ')[0]}}</span>
     </div>
-    <div class="artical" v-html="data.articleContent"></div>
+    <img :src="data.imgBanner" class="banner">
+    <div class="artical" v-html="data.artContent"></div>
   </div>
 </template>
 <script>
 import dayjs from 'dayjs';
-import { details } from '../../api';
+import { articleNews } from '../../api';
 export default {
   name: 'home',
   data() {
@@ -25,7 +34,7 @@ export default {
   },
   methods: {
     getDetails(id, token) {
-      details(id).then((res) => {
+      articleNews(id).then((res) => {
         console.log(res);
         if (res.data.type == 0) {
           this.data = res.data.data;
@@ -42,7 +51,7 @@ export default {
   height: 100vh;
   overflow: auto;
   overflow: auto;
-  background-color: #fff;
+  background-color: #303030;
   overflow-x: hidden;
   img {
     width: 100%;
@@ -53,7 +62,7 @@ export default {
   font-family: PingFang SC;
   line-height: 25px;
   font-weight: bold;
-  color: rgba(27, 27, 27, 1);
+  color: #e2e2e2;
   padding: 15px;
 }
 .subtitle {
@@ -64,15 +73,22 @@ export default {
 
   font-weight: 400;
   font-style: italic;
-  color: rgba(138, 138, 138, 1);
+  color: #aeaeae;
   .left {
-    color: #515151;
+    color: #efefef;
     margin-right: 10px;
     font-style: initial;
   }
 }
+.banner {
+  width: 100%;
+  margin: 16px 0px 20px 0px;
+}
 /deep/.artical {
   padding: 0px 15px;
+  font-size: 16px;
+  font-family: PingFang SC;
+  color: #efefef;
   line-height: 23px;
   img {
     width: 100%;
