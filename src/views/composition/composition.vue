@@ -107,7 +107,7 @@
       <div class="sixTable">
         <table cellspacing="5">
           <tr>
-            <td>{{data.dailyEnergyIntake}}g</td>
+            <td>{{data.dailyEnergyIntake}}kcal</td>
           </tr>
           <tr>
             <td>{{data.dailyProteinIntake}}g</td>
@@ -116,7 +116,7 @@
             <td>{{data.dailyFatIntake}}g</td>
           </tr>
           <tr>
-            <td>{{data.dailyCarbohydrateIntake}}g</td>
+            <td>{{data.dailyCarbohydrateIntake}}kg</td>
           </tr>
         </table>
       </div>
@@ -139,55 +139,55 @@
       <div class="font twoTable">
         <table cellspacing="9">
           <tr>
-            <td valign="top" width="310px"><span v-show="data.bodySizeDeterminationStatus==='1'">√</span></td>
-            <td valign="top" width="280px"><span v-show="data.bodySizeDeterminationStatus==='2'">√</span></td>
-            <td valign="top" width="280px"><span v-show="data.bodySizeDeterminationStatus==='3'">√</span></td>
+            <td valign="top" width="310px"><span v-show="data.bodySizeDeterminationStatus=='1'">√</span></td>
+            <td valign="top" width="280px"><span v-show="data.bodySizeDeterminationStatus=='2'">√</span></td>
+            <td valign="top" width="280px"><span v-show="data.bodySizeDeterminationStatus=='3'">√</span></td>
           </tr>
           <tr>
-            <td valign="top"><span v-show="data.bodySizeDeterminationStatus==='4'">√</span></td>
-            <td valign="top"><span v-show="data.bodySizeDeterminationStatus==='5'">√</span></td>
-            <td valign="top"><span v-show="data.bodySizeDeterminationStatus==='6'">√</span></td>
+            <td valign="top"><span v-show="data.bodySizeDeterminationStatus=='4'">√</span></td>
+            <td valign="top"><span v-show="data.bodySizeDeterminationStatus=='5'">√</span></td>
+            <td valign="top"><span v-show="data.bodySizeDeterminationStatus=='6'">√</span></td>
           </tr>
           <tr>
-            <td valign="top"><span v-show="data.bodySizeDeterminationStatus==='7'">√</span></td>
-            <td valign="top"><span v-show="data.bodySizeDeterminationStatus==='8'">√</span></td>
-            <td valign="top"><span v-show="data.bodySizeDeterminationStatus==='9'">√</span></td>
+            <td valign="top"><span v-show="data.bodySizeDeterminationStatus=='7'">√</span></td>
+            <td valign="top"><span v-show="data.bodySizeDeterminationStatus=='8'">√</span></td>
+            <td valign="top"><span v-show="data.bodySizeDeterminationStatus=='9'">√</span></td>
           </tr>
         </table>
       </div>
       <div class="font threeTable">
         <ul>
-          <li><span v-show="data.upperLimbBalanceStatus==='1'">√</span></li>
-          <li><span v-show="data.upperLimbBalanceStatus==='2'">√</span></li>
+          <li><span v-show="data.upperLimbBalanceStatus=='2'">√</span></li>
+          <li><span v-show="data.upperLimbBalanceStatus=='1'">√</span></li>
         </ul>
         <ul>
-          <li><span v-show="data.lowerLimbBalanceStatus==='1'">√</span></li>
-          <li><span v-show="data.lowerLimbBalanceStatus==='2'">√</span></li>
+          <li><span v-show="data.lowerLimbBalanceStatus=='2'">√</span></li>
+          <li><span v-show="data.lowerLimbBalanceStatus=='1'">√</span></li>
         </ul>
         <ul>
-          <li><span v-show="data.developedUpperLimbsStatus==='1'">√</span></li>
-          <li><span v-show="data.developedUpperLimbsStatus==='2'">√</span></li>
-          <li><span v-show="data.developedUpperLimbsStatus==='3'">√</span></li>
+          <li><span v-show="data.developedUpperLimbsStatus=='1'">√</span></li>
+          <li><span v-show="data.developedUpperLimbsStatus=='2'">√</span></li>
+          <li><span v-show="data.developedUpperLimbsStatus=='3'">√</span></li>
         </ul>
         <ul>
-          <li><span v-show="data.developedLowerLimbsStatus==='1'">√</span></li>
-          <li><span v-show="data.developedLowerLimbsStatus==='2'">√</span></li>
-          <li><span v-show="data.developedLowerLimbsStatus==='3'">√</span></li>
+          <li><span v-show="data.developedLowerLimbsStatus=='1'">√</span></li>
+          <li><span v-show="data.developedLowerLimbsStatus=='2'">√</span></li>
+          <li><span v-show="data.developedLowerLimbsStatus=='3'">√</span></li>
         </ul>
       </div>
       <div class="font fourTable">
         <ul>
-          <li><span v-show="data.proteinStatus==='1'">√</span></li>
-          <li><span v-show="data.proteinStatus==='2'">√</span></li>
+          <li><span v-show="data.proteinStatus=='1'">√</span></li>
+          <li><span v-show="data.proteinStatus=='2'">√</span></li>
         </ul>
         <ul>
-          <li><span v-show="data.inorganicSaltStatus==='1'">√</span></li>
-          <li><span v-show="data.inorganicSaltStatus==='2'">√</span></li>
+          <li><span v-show="data.inorganicSaltStatus=='1'">√</span></li>
+          <li><span v-show="data.inorganicSaltStatus=='2'">√</span></li>
         </ul>
         <ul>
-          <li><span v-show="data.fatStatus==='1'">√</span></li>
-          <li><span v-show="data.fatStatus==='2'">√</span></li>
-          <li><span v-show="data.fatStatus==='3'">√</span></li>
+          <li><span v-show="data.fatStatus=='1'">√</span></li>
+          <li><span v-show="data.fatStatus=='2'">√</span></li>
+          <li><span v-show="data.fatStatus=='3'">√</span></li>
         </ul>
       </div>
       <div class="fiveTable">
@@ -223,372 +223,358 @@
   </div>
 </template>
 <script>
-  import dayjs from 'dayjs'
-  const url = require('../../../public/backgroundImg.png')
-  export default {
-    name: 'home',
-    data() {
-      return {
-        bgImg: {
-          backgroundImage: 'url(' + url + ')'
-        },
-        data: null
-      }
-    },
-    created() {
-      // this.getData();
-      // js注册方法供原生调用;
-      this.$bridge.registerHandler('getData', (data, responseCallback) => {
-        var res = JSON.parse(data)
-        this.bgImg.backgroundImage =
-          res.isPrintPaper == 2 ? 'url(' + url + ')' : '#FFF'
-        this.data = {
-          ...res,
-          weightLow: res.weightRange.split('~')[0] || '',
-          weightHeight: res.weightRange.split('~')[1],
-          skeletalMuscleMassLow: res.skeletalMuscleMassRange.split('~')[0],
-          skeletalMuscleMassHeight: res.skeletalMuscleMassRange.split('~')[1],
-          bodyFatMassLow: res.bodyFatMassRange.split('~')[0],
-          bodyFatMassHeight: res.bodyFatMassRange.split('~')[1],
-          bodyMassIndexLow: res.bodyMassIndexRange.split('~')[0],
-          bodyMassIndexHeight: res.bodyMassIndexRange.split('~')[1],
-          fatPercentageLow: res.fatPercentageRange.split('~')[0],
-          fatPercentageHeight: res.fatPercentageRange.split('~')[1],
-          waistToHipRatioLow: res.waistToHipRatioRange.split('~')[0],
-          waistToHipRatioHeight: res.waistToHipRatioRange.split('~')[1],
-          visceralFatAreaLow: res.visceralFatAreaRange.split('~')[0],
-          visceralFatAreaHeight: res.visceralFatAreaRange.split('~')[1]
-        }
-        responseCallback(data)
-      })
+import dayjs from 'dayjs';
+const url = require('../../../public/backgroundImg.png');
+export default {
+  name: 'home',
+  data() {
+    return {
+      bgImg: {
+        backgroundImage: 'url(' + url + ')',
+      },
+      data: null,
+    };
+  },
+  created() {
+    // this.getData();
+    // js注册方法供原生调用;
+    this.$bridge.registerHandler('getData', (data, responseCallback) => {
+      var res = JSON.parse(data);
+      this.bgImg.backgroundImage = res.isPrintPaper == 2 ? 'url(' + url + ')' : '#FFF';
+      res.impedance = JSON.parse(res.impedance);
+      this.data = {
+        ...res,
+        weightLow: res.weightRange.split('~')[0],
+        weightHeight: res.weightRange.split('~')[1],
+        skeletalMuscleMassLow: res.skeletalMuscleMassRange.split('~')[0],
+        skeletalMuscleMassHeight: res.skeletalMuscleMassRange.split('~')[1],
+        bodyFatMassLow: res.bodyFatMassRange.split('~')[0],
+        bodyFatMassHeight: res.bodyFatMassRange.split('~')[1],
+        bodyMassIndexLow: res.bodyMassIndexRange.split('~')[0],
+        bodyMassIndexHeight: res.bodyMassIndexRange.split('~')[1],
+        fatPercentageLow: res.fatPercentageRange.split('~')[0],
+        fatPercentageHeight: res.fatPercentageRange.split('~')[1],
+        waistToHipRatioLow: res.waistToHipRatioRange.split('~')[0],
+        waistToHipRatioHeight: res.waistToHipRatioRange.split('~')[1],
+        visceralFatAreaLow: res.visceralFatAreaRange.split('~')[0],
+        visceralFatAreaHeight: res.visceralFatAreaRange.split('~')[1],
+      };
+      responseCallback(data);
+    });
 
-      //模拟数据
-      // let res = {
-      //   age: '25',
-      //   basalMetabolism: '2015.1',
-      //   bodyAge: '23.2',
-      //   bodyFatMass: '0.7',
-      //   bodyFatMassRange: '0.1~0.1',
-      //   bodyMassIndex: '28.2',
-      //   bodyMassIndexRange: '18.5~24.0',
-      //   bodySizeDeterminationStatus: '3',
-      //   dailyCarbohydrateIntake: '250.0',
-      //   dailyEnergyIntake: '1795.8',
-      //   dailyFatIntake: '55.0',
-      //   dailyOperation: '38.5',
-      //   dailyProteinIntake: '77.8',
-      //   date: '2020-08-08 20:03:38',
-      //   developedLowerLimbsStatus: '2',
-      //   developedUpperLimbsStatus: '2',
-      //   fatControl: '-0.6',
-      //   fatPercentage: '0.0',
-      //   fatPercentageRange: '10.0~20.0',
-      //   fatStatus: '3',
-      //   height: '165.0',
-      //   highExercise: '7.7',
-      //   idNumber: '1111',
-      //   impedance: [
-      //     46.83,
-      //     47.2,
-      //     1.99,
-      //     46.65,
-      //     46.84,
-      //     48.88,
-      //     49.12,
-      //     2.28,
-      //     48.91,
-      //     48.91,
-      //     24.16,
-      //     24.79,
-      //     0.42,
-      //     24.75,
-      //     23.97,
-      //     100.19
-      //   ],
-      //   inorganicSalt: '15.32',
-      //   inorganicSaltRange: '0.4~0.48',
-      //   inorganicSaltStatus: '2',
-      //   isPrintPaper: '2',
-      //   isPrintingBodyAge: '2',
-      //   isPrintingCompany: '2',
-      //   leanBodyMass: '76.2',
-      //   leftArmMuscle: '9.62',
-      //   leftLegMuscle: '12.22',
-      //   lowExercise: '15.4',
-      //   lowerLimbBalanceStatus: '1',
-      //   moderateExercise: '11.5',
-      //   muscleControl: '-60.3',
-      //   muscleMass: '60.8',
-      //   protein: '8.9',
-      //   proteinRange: '0.1~0.1',
-      //   proteinStatus: '2',
-      //   rightArmMuscle: '9.71',
-      //   rightLegMuscles: '12.22',
-      //   sex: '1',
-      //   skeletalMuscleMass: '26.5',
-      //   skeletalMuscleMassRange: '0.3~0.4',
-      //   targetWeight: '16.0',
-      //   totalBodyScore: '82.1',
-      //   totalMoisture: '52.0',
-      //   totalMoistureRange: '0.4~0.5',
-      //   trunkMuscles: '-11.98',
-      //   upperLimbBalanceStatus: '1',
-      //   visceralFatArea: '77.6',
-      //   visceralFatAreaRange: '0.0~100.0',
-      //   waistToHipRatio: '0.83',
-      //   waistToHipRatioRange: '0.75~0.85',
-      //   waistline: '86.41',
-      //   weight: '76.9',
-      //   weightControl: '-60.9',
-      //   weightRange: '18.7~25.3'
-      // }
-      // this.data = {
-      //   ...res,
-      //   weightLow: res.weightRange.split('~')[0],
-      //   weightHeight: res.weightRange.split('~')[1],
-      //   skeletalMuscleMassLow: res.skeletalMuscleMassRange.split('~')[0],
-      //   skeletalMuscleMassHeight: res.skeletalMuscleMassRange.split('~')[1],
-      //   bodyFatMassLow: res.bodyFatMassRange.split('~')[0],
-      //   bodyFatMassHeight: res.bodyFatMassRange.split('~')[1],
-      //   bodyMassIndexLow: res.bodyMassIndexRange.split('~')[0],
-      //   bodyMassIndexHeight: res.bodyMassIndexRange.split('~')[1],
-      //   fatPercentageLow: res.fatPercentageRange.split('~')[0],
-      //   fatPercentageHeight: res.fatPercentageRange.split('~')[1],
-      //   waistToHipRatioLow: res.waistToHipRatioRange.split('~')[0],
-      //   waistToHipRatioHeight: res.waistToHipRatioRange.split('~')[1],
-      //   visceralFatAreaLow: res.visceralFatAreaRange.split('~')[0],
-      //   visceralFatAreaHeight: res.visceralFatAreaRange.split('~')[1]
-      // }
+    //模拟数据
+    // let res = {
+    //   age: 25,
+    //   basalMetabolism: 2006.1,
+    //   bodyAge: 23.3,
+    //   bodyFatMass: -0.8,
+    //   bodyFatMassRange: '0.1~0.1',
+    //   bodyMassIndex: 27.5,
+    //   bodyMassIndexRange: '18.5~24.0',
+    //   bodySizeDeterminationStatus: 9,
+    //   dailyCarbohydrateIntake: 250.0,
+    //   dailyEnergyIntake: 1786.7,
+    //   dailyFatIntake: 55.0,
+    //   dailyOperation: 39.2,
+    //   dailyProteinIntake: 77.8,
+    //   date: '2020-08-10 20:39:21',
+    //   developedLowerLimbsStatus: 2,
+    //   developedUpperLimbsStatus: 2,
+    //   fatControl: 1.0,
+    //   fatPercentage: 0.0,
+    //   fatPercentageRange: '10.0~20.0',
+    //   fatStatus: 1,
+    //   height: 165.0,
+    //   highExercise: 7.8,
+    //   idNumber: '1343357715',
+    //   impedance:
+    //     '[46.91,46.94,2.3,46.58,46.58,49.3,49.28,2.27,48.98,48.84,24.18,24.165,0.4,24.93,24.13,100.33]',
+    //   inorganicSalt: 15.23,
+    //   inorganicSaltRange: '0.4~0.48',
+    //   inorganicSaltStatus: 2,
+    //   isPrintPaper: 2,
+    //   isPrintingBodyAge: 2,
+    //   isPrintingCompany: 2,
+    //   leanBodyMass: 75.7,
+    //   leftArmMuscle: 9.54,
+    //   leftLegMuscle: 12.25,
+    //   lowExercise: 15.7,
+    //   lowerLimbBalanceStatus: 1,
+    //   moderateExercise: 11.8,
+    //   muscleControl: -59.9,
+    //   muscleMass: 60.5,
+    //   protein: 8.8,
+    //   proteinRange: '0.1~0.1',
+    //   proteinStatus: 2,
+    //   rightArmMuscle: 9.54,
+    //   rightLegMuscles: 12.2,
+    //   sex: 1,
+    //   skeletalMuscleMass: 26.3,
+    //   skeletalMuscleMassRange: '0.3~0.4',
+    //   targetWeight: 15.9,
+    //   totalBodyScore: 83.0,
+    //   totalMoisture: 51.7,
+    //   totalMoistureRange: '0.4~0.5',
+    //   trunkMuscles: -12.35,
+    //   upperLimbBalanceStatus: 1,
+    //   visceralFatArea: 73.2,
+    //   visceralFatAreaRange: '0.0~100.0',
+    //   waistToHipRatio: 0.82,
+    //   waistToHipRatioRange: '0.75~0.85',
+    //   waistline: 84.68,
+    //   weight: 74.9,
+    //   weightControl: -59.0,
+    //   weightRange: '18.7~25.3',
+    // };
+    // res.impedance = JSON.parse(res.impedance);
+    // this.data = {
+    //   ...res,
+    //   weightLow: res.weightRange.split('~')[0],
+    //   weightHeight: res.weightRange.split('~')[1],
+    //   skeletalMuscleMassLow: res.skeletalMuscleMassRange.split('~')[0],
+    //   skeletalMuscleMassHeight: res.skeletalMuscleMassRange.split('~')[1],
+    //   bodyFatMassLow: res.bodyFatMassRange.split('~')[0],
+    //   bodyFatMassHeight: res.bodyFatMassRange.split('~')[1],
+    //   bodyMassIndexLow: res.bodyMassIndexRange.split('~')[0],
+    //   bodyMassIndexHeight: res.bodyMassIndexRange.split('~')[1],
+    //   fatPercentageLow: res.fatPercentageRange.split('~')[0],
+    //   fatPercentageHeight: res.fatPercentageRange.split('~')[1],
+    //   waistToHipRatioLow: res.waistToHipRatioRange.split('~')[0],
+    //   waistToHipRatioHeight: res.waistToHipRatioRange.split('~')[1],
+    //   visceralFatAreaLow: res.visceralFatAreaRange.split('~')[0],
+    //   visceralFatAreaHeight: res.visceralFatAreaRange.split('~')[1],
+    // };
+  },
+  methods: {
+    // JS调用原生方法
+    getData() {
+      let that = this;
+      this.$bridge.callHandler('getData', {}, (data, responseCallback) => {
+        alert(data, '接收到的数据');
+        var res = JSON.parse(data);
+        this.data = res;
+        responseCallback(data);
+      });
     },
-    methods: {
-      // JS调用原生方法
-      getData() {
-        let that = this
-        this.$bridge.callHandler('getData', {}, (data, responseCallback) => {
-          alert(data, '接收到的数据')
-          var res = JSON.parse(data)
-          this.data = res
-          responseCallback(data)
-        })
-      }
-    }
-  }
+  },
+};
 </script>
 
 <style lang="less" scoped>
-  .mainBody {
-    height: 3508px;
+.mainBody {
+  height: 3508px;
+  width: 2480px;
+  font-size: 36px;
+  font-weight: bolder;
+  .header {
+    position: absolute;
     width: 2480px;
-    font-size: 36px;
-    font-weight: bolder;
-    .header {
-      position: absolute;
-      width: 2480px;
-      height: 280px;
-      background: #fff;
+    height: 280px;
+    background: #fff;
+  }
+  .logo {
+    width: 200px;
+    height: 130px;
+    background: #fff;
+    float: right;
+    margin-top: 120px;
+    margin-right: 120px;
+  }
+  .headerOne {
+    padding-top: 290px;
+    padding-left: 172px;
+  }
+  .headerTwo {
+    padding-top: 30px;
+    .gender {
+      margin-left: 229px;
     }
-    .logo {
-      width: 200px;
-      height: 130px;
-      background: #fff;
-      float: right;
-      margin-top: 120px;
-      margin-right: 120px;
+    .stature {
+      margin-left: 260px;
     }
-    .headerOne {
-      padding-top: 290px;
-      padding-left: 172px;
+    .weight {
+      margin-left: 180px;
     }
-    .headerTwo {
-      padding-top: 30px;
-      .gender {
-        margin-left: 229px;
-      }
-      .stature {
-        margin-left: 260px;
-      }
-      .weight {
-        margin-left: 180px;
-      }
-      .age {
-        margin-left: 240px;
-      }
-      .time {
-        margin-left: 810px;
-      }
+    .age {
+      margin-left: 240px;
     }
-    .totalScore {
-      margin-left: 1751px;
-      margin-top: 115px;
-    }
-    .left {
-      width: 57%;
-      float: left;
-      .table {
-        margin-left: 329px;
-      }
-      .oneTable {
-        margin-top: 59px;
-        tr {
-          height: 71px;
-        }
-        td {
-          width: 199px;
-          text-align: center;
-        }
-      }
-      .twoTable {
-        margin-top: 190px;
-        tr {
-          height: 71px;
-        }
-        .zhengchang {
-          text-align: center;
-        }
-        td {
-          .Tspan {
-            height: 6px;
-            background: black;
-            display: block;
-            float: left;
-            margin: 30px 20px 0 0;
-            // padding: 0 10px;
-          }
-          span {
-            line-height: 71px;
-          }
-        }
-      }
-      .fourTable {
-        margin-top: 120px;
-        tr {
-          height: 54px;
-        }
-        td {
-          text-align: center;
-        }
-      }
-      .fiveTable {
-        margin-left: 104px;
-        margin-top: 530px;
-        tr {
-          height: 80px;
-        }
-        td {
-          width: 298px;
-          text-align: center;
-        }
-      }
-      .sixTable {
-        margin-left: 760px;
-        margin-top: 200px;
-        tr {
-          height: 55px;
-        }
-        td {
-          text-align: center;
-        }
-      }
-    }
-    .right {
-      float: right;
-      .Tbodyhidden {
-        position: absolute;
-        top: 870px;
-        padding-left: 350px;
-      }
-      .Tbody {
-        position: absolute;
-        top: 1050px;
-        padding-left: 350px;
-      }
-      .font {
-        font-family: SimSun;
-        font-weight: bold;
-        color: rgba(0, 0, 0, 1);
-      }
-      width: 41%;
-      .oneTable {
-        margin-left: 60px;
-        margin-top: 157px;
-        td {
-          width: 355px;
-          padding-top: 62px;
-          padding-left: 140px;
-        }
-      }
-      .twoTable {
-        margin-top: 190px;
-        margin-left: 14px;
-        tr {
-          height: 94px;
-        }
-        td {
-        }
-      }
-      .threeTable {
-        margin-top: 106px;
-        margin-left: 152px;
-        ul {
-          width: 100%;
-          list-style: none;
-          margin-left: 50px;
-          height: 63px;
-        }
-        li {
-          display: inline-block;
-          line-height: 40px;
-
-          width: 236px;
-        }
-      }
-      .fourTable {
-        margin-top: 121px;
-        margin-left: 152px;
-        ul {
-          width: 100%;
-          list-style: none;
-          margin-left: 50px;
-          height: 63px;
-        }
-        li {
-          display: inline-block;
-          line-height: 40px;
-          width: 236px;
-        }
-      }
-      .fiveTable {
-        margin-top: 160px;
-        margin-left: 200px;
-        tr {
-          height: 60px;
-        }
-        td {
-          width: 120px;
-          font-size: center;
-        }
-      }
-      .button {
-        margin-top: 28px;
-        width: 900px;
-        height: 50px;
-        background: #fff;
-        z-index: 9999;
-      }
-      .btn {
-        margin-top: 26px;
-      }
-    }
-
-    .low {
-      width: 66px;
-    }
-    .normal {
-      width: 200px;
-    }
-    .height {
-      width: 494px;
+    .time {
+      margin-left: 810px;
     }
   }
+  .totalScore {
+    margin-left: 1751px;
+    margin-top: 115px;
+  }
+  .left {
+    width: 57%;
+    float: left;
+    .table {
+      margin-left: 329px;
+    }
+    .oneTable {
+      margin-top: 59px;
+      tr {
+        height: 71px;
+      }
+      td {
+        width: 199px;
+        text-align: center;
+      }
+    }
+    .twoTable {
+      margin-top: 190px;
+      tr {
+        height: 71px;
+      }
+      .zhengchang {
+        text-align: center;
+      }
+      td {
+        .Tspan {
+          height: 6px;
+          background: black;
+          display: block;
+          float: left;
+          margin: 30px 20px 0 0;
+          // padding: 0 10px;
+        }
+        span {
+          line-height: 71px;
+        }
+      }
+    }
+    .fourTable {
+      margin-top: 120px;
+      tr {
+        height: 54px;
+      }
+      td {
+        text-align: center;
+        line-height: 54px;
+      }
+    }
+    .fiveTable {
+      margin-left: 104px;
+      margin-top: 530px;
+      tr {
+        height: 80px;
+      }
+      td {
+        width: 298px;
+        text-align: center;
+      }
+    }
+    .sixTable {
+      margin-left: 760px;
+      margin-top: 190px;
+      tr {
+        height: 60px;
+      }
+      td {
+        text-align: center;
+      }
+    }
+  }
+  .right {
+    float: right;
+    .Tbodyhidden {
+      position: absolute;
+      top: 870px;
+      padding-left: 350px;
+    }
+    .Tbody {
+      position: absolute;
+      top: 1050px;
+      padding-left: 350px;
+    }
+    .font {
+      font-family: SimSun;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 1);
+    }
+    width: 41%;
+    .oneTable {
+      margin-left: 60px;
+      margin-top: 157px;
+      td {
+        width: 355px;
+        padding-top: 62px;
+        padding-left: 140px;
+      }
+    }
+    .twoTable {
+      margin-top: 190px;
+      margin-left: 14px;
+      tr {
+        height: 94px;
+      }
+      td {
+      }
+    }
+    .threeTable {
+      margin-top: 106px;
+      margin-left: 152px;
+      ul {
+        width: 100%;
+        list-style: none;
+        margin-left: 50px;
+        height: 63px;
+      }
+      li {
+        display: inline-block;
+        line-height: 40px;
+
+        width: 236px;
+      }
+    }
+    .fourTable {
+      margin-top: 121px;
+      margin-left: 152px;
+      ul {
+        width: 100%;
+        list-style: none;
+        margin-left: 50px;
+        height: 63px;
+      }
+      li {
+        display: inline-block;
+        line-height: 40px;
+        width: 236px;
+      }
+    }
+    .fiveTable {
+      margin-top: 160px;
+      margin-left: 200px;
+      tr {
+        height: 60px;
+      }
+      td {
+        width: 120px;
+        font-size: center;
+      }
+    }
+    .button {
+      margin-top: 28px;
+      width: 900px;
+      height: 50px;
+      background: #fff;
+      z-index: 9999;
+    }
+    .btn {
+      margin-top: 26px;
+    }
+  }
+
+  .low {
+    width: 66px;
+  }
+  .normal {
+    width: 200px;
+  }
+  .height {
+    width: 494px;
+  }
+}
 </style>
 
