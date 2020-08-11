@@ -1,6 +1,7 @@
 <template>
-
-  <div class="mainBody" :style="bgImg">
+  <div :class="['mainBody',data.isPrintPaper==='1'?'mainBodyOther':'']" :style="bgImg">
+    <div :class="[data.isPrintPaper==='1'?'header':'']"></div>
+    <div :class="[data.isPrintPaper==='1'?'header2':'']"></div>
     <div :class="[data.isPrintingCompany==='2'?'logo':'']"></div>
     <div class="headerOne">{{data.idNumber}}</div>
     <div class="headerTwo">
@@ -10,458 +11,584 @@
       <span class="age">{{data.age}}</span>
       <span class="time">{{data.date}}</span>
     </div>
-    <div class="totalScore">{{data.totalScore}}分</div>
+    <div class="totalScore">{{data.totalBodyScore}}/100分</div>
     <div class="left">
       <div class="table oneTable">
         <table cellspacing="9">
           <tr>
-            <td>{{data.shuiFenValue}}</td>
-            <td rowspan="2">{{data.jiRouLiang1}}</td>
-            <td rowspan="3">{{data.quZhiTiZhong}}</td>
-            <td rowspan="4">{{data.tiZhong}}</td>
-            <td>37.7~46.1</td>
+            <td>{{data.totalMoisture}}</td>
+            <td rowspan="2">{{data.muscleMass}}</td>
+            <td rowspan="3">{{data.leanBodyMass}}</td>
+            <td rowspan="4">{{data.weight}}</td>
+            <td>{{data.totalMoistureRange}}</td>
           </tr>
           <tr>
-            <td>{{data.danBaiZhiValue}}</td>
-            <td>10.4~12.7</td>
+            <td>{{data.protein}}</td>
+            <td>{{data.proteinRange}}</td>
           </tr>
           <tr>
-            <td colspan="2">{{data.wuJiYanValue}}</td>
-            <td>3.52~4.30</td>
+            <td colspan="2">{{data.inorganicSalt}}</td>
+            <td>{{data.inorganicSaltRange}}</td>
           </tr>
           <tr>
-            <td colspan="3">{{data.tiZhiFangValue}}</td>
-            <td>6.7~13.5</td>
+            <td colspan="3">{{data.bodyFatMass}}</td>
+            <td>{{data.bodyFatMassRange}}</td>
           </tr>
         </table>
       </div>
       <div class="table twoTable">
         <table cellspacing="9">
           <tr>
-            <td width="824px"><span :class="['Tspan',data.tiZhong>=0&&data.tiZhong<57.7?'low':data.tiZhong>=57.7&&data.tiZhong<=57.7?'normal':'height']"></span><span>{{data.tiZhong}}</span></td>
-            <td width="199px" class="zhengchang">57.7~57.7</td>
+            <td width="824px"><span :class="['Tspan',data.weight>=0&&data.weight<data.weightLow?'low':data.weight>=data.weightLow&&data.weight<=data.weightHeight?'normal':'height']"></span><span>{{data.weight}}</span></td>
+            <td width="199px" class="zhengchang">{{data.weightRange}}</td>
           </tr>
           <tr>
-            <td width="824px"><span :class="['Tspan',data.guGeJiRouLiang>=0&&data.guGeJiRouLiang<28.8?'low':data.guGeJiRouLiang>=28.8&&data.guGeJiRouLiang<=35.2?'normal':'height']"></span><span>{{data.guGeJiRouLiang}}</span></td>
-            <td width="199px" class="zhengchang">28.8~35.2</td>
+            <td width="824px"><span :class="['Tspan',data.skeletalMuscleMass>=0&&data.skeletalMuscleMass<data.skeletalMuscleMassLow?'low':data.skeletalMuscleMass>=data.skeletalMuscleMassLow&&data.skeletalMuscleMass<=data.skeletalMuscleMassHeight?'normal':'height']"></span><span>{{data.skeletalMuscleMass}}</span>
+            </td>
+            <td width="199px" class="zhengchang">{{data.skeletalMuscleMassRange}}</td>
           </tr>
           <tr>
-            <td width="824px"><span :class="['Tspan',data.tiZhiFangLiang>=0&&data.tiZhiFangLiang<6.7?'low':data.tiZhiFangLiang>=6.7&&data.tiZhiFangLiang<=13.5?'normal':'height']"></span><span>{{data.tiZhiFangLiang}}</span></td>
-            <td width="199px" class="zhengchang">6.7~13.5</td>
+            <td width="824px"><span :class="['Tspan',data.bodyFatMass>=0&&data.bodyFatMass<data.bodyFatMassLow?'low':data.bodyFatMass>=data.bodyFatMassLow&&data.bodyFatMass<=data.bodyHeight?'normal':'height']"></span><span>{{data.bodyFatMass}}</span>
+            </td>
+            <td width="199px" class="zhengchang">{{data.bodyFatMassRange}}</td>
           </tr>
         </table>
       </div>
       <div class="table twoTable" style="margin-top:180px">
         <table cellspacing="9">
           <tr>
-            <td width="824px"><span :class="['Tspan',data.shenTiZhiLiangZhiShu>=0&&data.shenTiZhiLiangZhiShu<18.5?'low':data.shenTiZhiLiangZhiShu>=18.5&&data.shenTiZhiLiangZhiShu<=24.0?'normal':'height']"></span><span>{{data.shenTiZhiLiangZhiShu}}</span></td>
-            <td width="199px" class="zhengchang">18.5~24.0</td>
+            <td width="824px"><span :class="['Tspan',data.bodyMassIndex>=0&&data.bodyMassIndex<data.bodyMassIndexLow?'low':data.bodyMassIndex>=data.bodyMassIndexLow&&data.bodyMassIndex<=data.bodyMassIndexHeight?'normal':'height']"></span><span>{{data.bodyMassIndex}}</span>
+            </td>
+            <td width="199px" class="zhengchang">{{data.bodyMassIndexRange}}</td>
           </tr>
           <tr>
-            <td width="824px"><span :class="['Tspan',data.zhiFangBaiFenBi>=0&&data.zhiFangBaiFenBi<10.0?'low':data.zhiFangBaiFenBi>=10.0&&data.zhiFangBaiFenBi<=20.0?'normal':'height']"></span><span>{{data.zhiFangBaiFenBi}}</span></td>
-            <td width="199px" class="zhengchang">10.0~20.0</td>
+            <td width="824px"><span :class="['Tspan',data.fatPercentage>=0&&data.fatPercentage<data.fatPercentageLow?'low':data.fatPercentage>=data.fatPercentageLow&&data.fatPercentage<=data.fatPercentageHeight?'normal':'height']"></span><span>{{data.fatPercentage}}</span>
+            </td>
+            <td width="199px" class="zhengchang">{{data.fatPercentageRange}}</td>
           </tr>
           <tr>
-            <td width="824px"><span :class="['Tspan',data.yaoTunBi>=0&&data.yaoTunBi<0.75?'low':data.yaoTunBi>=0.75&&data.yaoTunBi<=0.85?'normal':'height']"></span><span>{{data.yaoTunBi}}</span></td>
-            <td width="199px" class="zhengchang">0.75~0.85</td>
+            <td width="824px"><span :class="['Tspan',data.waistToHipRatio>=0&&data.waistToHipRatio<data.waistToHipRatioLow?'low':data.waistToHipRatio>=data.waistToHipRatioLow&&data.waistToHipRatio<=data.waistToHipRatioHeight?'normal':'height']"></span><span>{{data.waistToHipRatio}}</span></td>
+            <td width="199px" class="zhengchang">{{data.waistToHipRatioRange}}</td>
           </tr>
           <tr>
-            <td width="824px"><span :class="['Tspan',data.neiZangZhiFangMianJi>=0&&data.neiZangZhiFangMianJi<0.0?'low':data.neiZangZhiFangMianJi>=0.0&&data.neiZangZhiFangMianJi<=100.0?'normal':'height']"></span><span>{{data.neiZangZhiFangMianJi}}</span></td>
-            <td width="199px" class="zhengchang">0.0~100.0</td>
+            <td width="824px"><span :class="['Tspan',data.visceralFatArea>=0&&data.visceralFatArea<data.visceralFatAreaLow?'low':data.visceralFatArea>=data.visceralFatAreaLow&&data.visceralFatArea<=data.visceralFatAreaHeight?'normal':'height']"></span><span>{{data.visceralFatArea}}</span>
+            </td>
+            <td width="199px" class="zhengchang">{{data.visceralFatAreaRange}}</td>
           </tr>
         </table>
       </div>
       <div class="table fourTable">
         <table cellspacing="9">
           <tr>
-            <td width="400px">{{data.muBiaoTiZhong}}</td>
+            <td width="400px">{{data.targetWeight}}</td>
             <td width="200px"></td>
-            <td width="415px">{{data.tiZhongKongZhi}}</td>
+            <td width="415px">{{data.weightControl}}</td>
           </tr>
           <tr>
-            <td width="400px">{{data.jiRouKongZhi}}</td>
+            <td width="400px">{{data.muscleControl}}</td>
             <td width="200px"></td>
-            <td width="415px">{{data.zhiFangKongZhi}}</td>
+            <td width="415px">{{data.fatControl}}</td>
           </tr>
           <tr>
-            <td colspan="3">{{data.jiChuDaiXieLiang}}</td>
+            <td colspan="3">{{data.basalMetabolism}}</td>
           </tr>
         </table>
       </div>
       <div class="fiveTable">
         <table cellspacing="16">
           <tr>
-            <td>{{data.riChang}}小时/周</td>
-            <td>{{data.diYun}}小时/周</td>
-            <td>{{data.zhongYun}}小时/周</td>
-            <td>{{data.gaoYun}}小时/周</td>
+            <td>{{data.dailyOperation}}小时/周</td>
+            <td>{{data.lowExercise}}小时/周</td>
+            <td>{{data.moderateExercise}}小时/周</td>
+            <td>{{data.highExercise}}小时/周</td>
           </tr>
         </table>
       </div>
       <div class="sixTable">
         <table cellspacing="5">
           <tr>
-            <td>{{data.nengLiang}}g</td>
+            <td>{{data.dailyEnergyIntake}}g</td>
           </tr>
           <tr>
-            <td>{{data.danBaiZhi}}g</td>
+            <td>{{data.dailyProteinIntake}}g</td>
           </tr>
           <tr>
-            <td>{{data.zhiFang}}g</td>
+            <td>{{data.dailyFatIntake}}g</td>
           </tr>
           <tr>
-            <td>{{data.tanShui}}g</td>
+            <td>{{data.dailyCarbohydrateIntake}}g</td>
           </tr>
         </table>
       </div>
     </div>
     <div class="right">
       <!-- 躯干 -->
-      <div class="Tbody">{{data.body}}kg</div>
+      <div class="Tbody">{{data.trunkMuscles}}kg</div>
       <div class="oneTable">
         <table cellspacing="9">
           <tr height="565px">
-            <td valign="top">{{data.leftArm}}kg</td>
-            <td valign="top" style="padding-left:195px">{{data.leftLeg}}kg</td>
+            <td valign="top">{{data.leftArmMuscle}}kg</td>
+            <td valign="top" style="padding-left:195px">{{data.rightArmMuscle}}kg</td>
           </tr>
           <tr height="400px">
-            <td valign="top">{{data.rightLeg}}kg</td>
-            <td valign="top" style="padding-left:205px">{{data.rightArm}}kg</td>
+            <td valign="top">{{data.leftLegMuscle}}kg</td>
+            <td valign="top" style="padding-left:205px">{{data.rightLegMuscles}}kg</td>
           </tr>
         </table>
       </div>
       <div class="font twoTable">
         <table cellspacing="9">
           <tr>
-            <td valign="top" width="310px"><span v-show="data.tiXingPanDing==='1'">√</span></td>
-            <td valign="top" width="280px"><span v-show="data.tiXingPanDing==='2'">√</span></td>
-            <td valign="top" width="280px"><span v-show="data.tiXingPanDing==='3'">√</span></td>
+            <td valign="top" width="310px"><span v-show="data.bodySizeDeterminationStatus==='1'">√</span></td>
+            <td valign="top" width="280px"><span v-show="data.bodySizeDeterminationStatus==='2'">√</span></td>
+            <td valign="top" width="280px"><span v-show="data.bodySizeDeterminationStatus==='3'">√</span></td>
           </tr>
           <tr>
-            <td valign="top"><span v-show="data.tiXingPanDing==='4'">√</span></td>
-            <td valign="top"><span v-show="data.tiXingPanDing==='5'">√</span></td>
-            <td valign="top"><span v-show="data.tiXingPanDing==='6'">√</span></td>
+            <td valign="top"><span v-show="data.bodySizeDeterminationStatus==='4'">√</span></td>
+            <td valign="top"><span v-show="data.bodySizeDeterminationStatus==='5'">√</span></td>
+            <td valign="top"><span v-show="data.bodySizeDeterminationStatus==='6'">√</span></td>
           </tr>
           <tr>
-            <td valign="top"><span v-show="data.tiXingPanDing==='7'">√</span></td>
-            <td valign="top"><span v-show="data.tiXingPanDing==='8'">√</span></td>
-            <td valign="top"><span v-show="data.tiXingPanDing==='9'">√</span></td>
+            <td valign="top"><span v-show="data.bodySizeDeterminationStatus==='7'">√</span></td>
+            <td valign="top"><span v-show="data.bodySizeDeterminationStatus==='8'">√</span></td>
+            <td valign="top"><span v-show="data.bodySizeDeterminationStatus==='9'">√</span></td>
           </tr>
         </table>
       </div>
       <div class="font threeTable">
         <ul>
-          <li><span v-show="data.shangZhiJunHeng==='1'">√</span></li>
-          <li><span v-show="data.shangZhiJunHeng==='2'">√</span></li>
+          <li><span v-show="data.upperLimbBalanceStatus==='1'">√</span></li>
+          <li><span v-show="data.upperLimbBalanceStatus==='2'">√</span></li>
         </ul>
         <ul>
-          <li><span v-show="data.xiaZhiJunHeng==='1'">√</span></li>
-          <li><span v-show="data.xiaZhiJunHeng==='2'">√</span></li>
+          <li><span v-show="data.lowerLimbBalanceStatus==='1'">√</span></li>
+          <li><span v-show="data.lowerLimbBalanceStatus==='2'">√</span></li>
         </ul>
         <ul>
-          <li><span v-show="data.shangZhiFaDa==='1'">√</span></li>
-          <li><span v-show="data.shangZhiFaDa==='2'">√</span></li>
-          <li><span v-show="data.shangZhiFaDa==='3'">√</span></li>
+          <li><span v-show="data.developedUpperLimbsStatus==='1'">√</span></li>
+          <li><span v-show="data.developedUpperLimbsStatus==='2'">√</span></li>
+          <li><span v-show="data.developedUpperLimbsStatus==='3'">√</span></li>
         </ul>
         <ul>
-          <li><span v-show="data.xiaZhiFaDa==='1'">√</span></li>
-          <li><span v-show="data.xiaZhiFaDa==='2'">√</span></li>
-          <li><span v-show="data.xiaZhiFaDa==='3'">√</span></li>
+          <li><span v-show="data.developedLowerLimbsStatus==='1'">√</span></li>
+          <li><span v-show="data.developedLowerLimbsStatus==='2'">√</span></li>
+          <li><span v-show="data.developedLowerLimbsStatus==='3'">√</span></li>
         </ul>
       </div>
       <div class="font fourTable">
         <ul>
-          <li><span v-show="data.danBaiZhi==='1'">√</span></li>
-          <li><span v-show="data.danBaiZhi==='2'">√</span></li>
+          <li><span v-show="data.proteinStatus==='1'">√</span></li>
+          <li><span v-show="data.proteinStatus==='2'">√</span></li>
         </ul>
         <ul>
-          <li><span v-show="data.wuJiYan==='1'">√</span></li>
-          <li><span v-show="data.wuJiYan==='2'">√</span></li>
+          <li><span v-show="data.inorganicSaltStatus==='1'">√</span></li>
+          <li><span v-show="data.inorganicSaltStatus==='2'">√</span></li>
         </ul>
         <ul>
-          <li><span v-show="data.zhiFang==='1'">√</span></li>
-          <li><span v-show="data.zhiFang==='2'">√</span></li>
-          <li><span v-show="data.zhiFang==='3'">√</span></li>
+          <li><span v-show="data.fatStatus==='1'">√</span></li>
+          <li><span v-show="data.fatStatus==='2'">√</span></li>
+          <li><span v-show="data.fatStatus==='3'">√</span></li>
         </ul>
       </div>
       <div class="fiveTable">
         <table cellspacing="9">
           <tr>
-            <td>{{data.RaAKhz}}</td>
-            <td>{{data.LaAKhz}}</td>
-            <td>{{data.TrAKhz}}</td>
-            <td>{{data.RlAKhz}}</td>
-            <td>{{data.LlAKhz}}</td>
+            <td>{{data.impedance[0]}}</td>
+            <td>{{data.impedance[1]}}</td>
+            <td>{{data.impedance[2]}}</td>
+            <td>{{data.impedance[3]}}</td>
+            <td>{{data.impedance[4]}}</td>
           </tr>
           <tr>
-            <td>{{data.RaBkhz}}</td>
-            <td>{{data.LaBkhz}}</td>
-            <td>{{data.TrBkhz}}</td>
-            <td>{{data.RlBkhz}}</td>
-            <td>{{data.LlBkhz}}</td>
+            <td>{{data.impedance[5]}}</td>
+            <td>{{data.impedance[6]}}</td>
+            <td>{{data.impedance[7]}}</td>
+            <td>{{data.impedance[8]}}</td>
+            <td>{{data.impedance[9]}}</td>
           </tr>
           <tr>
-            <td>{{data.RaCkhz}}</td>
-            <td>{{data.LaCkhz}}</td>
-            <td>{{data.TrCkhz}}</td>
-            <td>{{data.RaCkhz}}</td>
-            <td>{{data.LlCkhz}}</td>
+            <td>{{data.impedance[10]}}</td>
+            <td>{{data.impedance[11]}}</td>
+            <td>{{data.impedance[12]}}</td>
+            <td>{{data.impedance[13]}}</td>
+            <td>{{data.impedance[14]}}</td>
           </tr>
         </table>
       </div>
       <div :class="[data.isPrintingBodyAge==='2'?'button':'']">
-        <span style="margin-left: 319px;">{{data.xiongWei}}</span>
-        <span style="margin-left: 100px;">{{data.shenTiNianLing}}</span>
+        <span style="margin-left: 319px;" v-show="data.isPrintingBodyAge==='1'">{{data.waistline}}</span>
+        <span style="margin-left: 90px;" v-show="data.isPrintingBodyAge==='1'">{{data.bodyAge}}</span>
       </div>
     </div>
   </div>
 </template>
 <script>
-import dayjs from 'dayjs';
-const url = require('../../../public/backgroundImg.png');
-export default {
-  name: 'home',
-  data() {
-    return {
-      bgImg: {
-        backgroundImage: 'url(' + url + ')',
-      },
-      data: null,
-    };
-  },
-  created() {
-    // this.getData();
-    // js注册方法供原生调用;
-    this.$bridge.registerHandler('getData', (data, responseCallback) => {
-      var res = JSON.parse(data);
-      this.bgImg.backgroundImage = res.isPrintPaper == 2 ? 'url(' + url + ')' : '#FFF';
-      this.data = res;
-      responseCallback(data);
-    });
-  },
-  methods: {
-    // JS调用原生方法
-    getData() {
-      let that = this;
-      this.$bridge.callHandler('getData', {}, (data, responseCallback) => {
-        alert(data, '接收到的数据');
-        var res = JSON.parse(data);
-        this.data = res;
-        responseCallback(data);
-      });
+  import dayjs from 'dayjs'
+  const url = require('../../../public/backgroundImg.png')
+  export default {
+    name: 'home',
+    data() {
+      return {
+        bgImg: {
+          backgroundImage: 'url(' + url + ')'
+        },
+        data: null
+      }
     },
-  },
-};
+    created() {
+      // this.getData();
+      // js注册方法供原生调用;
+      this.$bridge.registerHandler('getData', (data, responseCallback) => {
+        var res = JSON.parse(data)
+        this.bgImg.backgroundImage =
+          res.isPrintPaper == 2 ? 'url(' + url + ')' : '#FFF'
+        this.data = {
+          ...res,
+          weightLow: res.weightRange.split('~')[0] || '',
+          weightHeight: res.weightRange.split('~')[1],
+          skeletalMuscleMassLow: res.skeletalMuscleMassRange.split('~')[0],
+          skeletalMuscleMassHeight: res.skeletalMuscleMassRange.split('~')[1],
+          bodyFatMassLow: res.bodyFatMassRange.split('~')[0],
+          bodyFatMassHeight: res.bodyFatMassRange.split('~')[1],
+          bodyMassIndexLow: res.bodyMassIndexRange.split('~')[0],
+          bodyMassIndexHeight: res.bodyMassIndexRange.split('~')[1],
+          fatPercentageLow: res.fatPercentageRange.split('~')[0],
+          fatPercentageHeight: res.fatPercentageRange.split('~')[1],
+          waistToHipRatioLow: res.waistToHipRatioRange.split('~')[0],
+          waistToHipRatioHeight: res.waistToHipRatioRange.split('~')[1],
+          visceralFatAreaLow: res.visceralFatAreaRange.split('~')[0],
+          visceralFatAreaHeight: res.visceralFatAreaRange.split('~')[1]
+        }
+        responseCallback(data)
+      })
+
+      //模拟数据
+      // let res = {
+      //   age: '25',
+      //   basalMetabolism: '2015.1',
+      //   bodyAge: '23.2',
+      //   bodyFatMass: '0.7',
+      //   bodyFatMassRange: '0.1~0.1',
+      //   bodyMassIndex: '28.2',
+      //   bodyMassIndexRange: '18.5~24.0',
+      //   bodySizeDeterminationStatus: '3',
+      //   dailyCarbohydrateIntake: '250.0',
+      //   dailyEnergyIntake: '1795.8',
+      //   dailyFatIntake: '55.0',
+      //   dailyOperation: '38.5',
+      //   dailyProteinIntake: '77.8',
+      //   date: '2020-08-08 20:03:38',
+      //   developedLowerLimbsStatus: '2',
+      //   developedUpperLimbsStatus: '2',
+      //   fatControl: '-0.6',
+      //   fatPercentage: '0.0',
+      //   fatPercentageRange: '10.0~20.0',
+      //   fatStatus: '3',
+      //   height: '165.0',
+      //   highExercise: '7.7',
+      //   idNumber: '1111',
+      //   impedance: [
+      //     46.83,
+      //     47.2,
+      //     1.99,
+      //     46.65,
+      //     46.84,
+      //     48.88,
+      //     49.12,
+      //     2.28,
+      //     48.91,
+      //     48.91,
+      //     24.16,
+      //     24.79,
+      //     0.42,
+      //     24.75,
+      //     23.97,
+      //     100.19
+      //   ],
+      //   inorganicSalt: '15.32',
+      //   inorganicSaltRange: '0.4~0.48',
+      //   inorganicSaltStatus: '2',
+      //   isPrintPaper: '2',
+      //   isPrintingBodyAge: '2',
+      //   isPrintingCompany: '2',
+      //   leanBodyMass: '76.2',
+      //   leftArmMuscle: '9.62',
+      //   leftLegMuscle: '12.22',
+      //   lowExercise: '15.4',
+      //   lowerLimbBalanceStatus: '1',
+      //   moderateExercise: '11.5',
+      //   muscleControl: '-60.3',
+      //   muscleMass: '60.8',
+      //   protein: '8.9',
+      //   proteinRange: '0.1~0.1',
+      //   proteinStatus: '2',
+      //   rightArmMuscle: '9.71',
+      //   rightLegMuscles: '12.22',
+      //   sex: '1',
+      //   skeletalMuscleMass: '26.5',
+      //   skeletalMuscleMassRange: '0.3~0.4',
+      //   targetWeight: '16.0',
+      //   totalBodyScore: '82.1',
+      //   totalMoisture: '52.0',
+      //   totalMoistureRange: '0.4~0.5',
+      //   trunkMuscles: '-11.98',
+      //   upperLimbBalanceStatus: '1',
+      //   visceralFatArea: '77.6',
+      //   visceralFatAreaRange: '0.0~100.0',
+      //   waistToHipRatio: '0.83',
+      //   waistToHipRatioRange: '0.75~0.85',
+      //   waistline: '86.41',
+      //   weight: '76.9',
+      //   weightControl: '-60.9',
+      //   weightRange: '18.7~25.3'
+      // }
+      // this.data = {
+      //   ...res,
+      //   weightLow: res.weightRange.split('~')[0],
+      //   weightHeight: res.weightRange.split('~')[1],
+      //   skeletalMuscleMassLow: res.skeletalMuscleMassRange.split('~')[0],
+      //   skeletalMuscleMassHeight: res.skeletalMuscleMassRange.split('~')[1],
+      //   bodyFatMassLow: res.bodyFatMassRange.split('~')[0],
+      //   bodyFatMassHeight: res.bodyFatMassRange.split('~')[1],
+      //   bodyMassIndexLow: res.bodyMassIndexRange.split('~')[0],
+      //   bodyMassIndexHeight: res.bodyMassIndexRange.split('~')[1],
+      //   fatPercentageLow: res.fatPercentageRange.split('~')[0],
+      //   fatPercentageHeight: res.fatPercentageRange.split('~')[1],
+      //   waistToHipRatioLow: res.waistToHipRatioRange.split('~')[0],
+      //   waistToHipRatioHeight: res.waistToHipRatioRange.split('~')[1],
+      //   visceralFatAreaLow: res.visceralFatAreaRange.split('~')[0],
+      //   visceralFatAreaHeight: res.visceralFatAreaRange.split('~')[1]
+      // }
+    },
+    methods: {
+      // JS调用原生方法
+      getData() {
+        let that = this
+        this.$bridge.callHandler('getData', {}, (data, responseCallback) => {
+          alert(data, '接收到的数据')
+          var res = JSON.parse(data)
+          this.data = res
+          responseCallback(data)
+        })
+      }
+    }
+  }
 </script>
 
 <style lang="less" scoped>
-.mainBody {
-  height: 3508px;
-  width: 2480px;
-  font-size: 36px;
-  .header {
-    position: absolute;
+  .mainBody {
+    height: 3508px;
     width: 2480px;
-    height: 280px;
-    background: #fff;
-  }
-  .logo {
-    width: 200px;
-    height: 130px;
-    background: #fff;
-    float: right;
-    margin-top: 120px;
-    margin-right: 120px;
-  }
-  .headerOne {
-    padding-top: 290px;
-    padding-left: 172px;
-  }
-  .headerTwo {
-    padding-top: 30px;
-    .gender {
-      margin-left: 229px;
-    }
-    .stature {
-      margin-left: 260px;
-    }
-    .weight {
-      margin-left: 180px;
-    }
-    .age {
-      margin-left: 240px;
-    }
-    .time {
-      margin-left: 810px;
-    }
-  }
-  .totalScore {
-    margin-left: 1751px;
-    margin-top: 115px;
-  }
-  .left {
-    width: 57%;
-    float: left;
-    .table {
-      margin-left: 329px;
-    }
-    .oneTable {
-      margin-top: 59px;
-      tr {
-        height: 71px;
-      }
-      td {
-        width: 199px;
-        text-align: center;
-      }
-    }
-    .twoTable {
-      margin-top: 190px;
-      tr {
-        height: 71px;
-      }
-      .zhengchang {
-        text-align: center;
-      }
-      td {
-        .Tspan {
-          height: 4px;
-          background: black;
-          display: block;
-          float: left;
-          margin-top: 35px;
-        }
-        span {
-          line-height: 71px;
-        }
-      }
-    }
-    .fourTable {
-      margin-top: 120px;
-      tr {
-        height: 54px;
-      }
-      td {
-        text-align: center;
-      }
-    }
-    .fiveTable {
-      margin-left: 104px;
-      margin-top: 530px;
-      tr {
-        height: 80px;
-      }
-      td {
-        width: 298px;
-        text-align: center;
-      }
-    }
-    .sixTable {
-      margin-left: 760px;
-      margin-top: 200px;
-      tr {
-        height: 55px;
-      }
-      td {
-        text-align: center;
-      }
-    }
-  }
-  .right {
-    float: right;
-    .Tbodyhidden {
+    font-size: 36px;
+    font-weight: bolder;
+    .header {
       position: absolute;
-      top: 870px;
-      padding-left: 350px;
-    }
-    .Tbody {
-      position: absolute;
-      top: 1050px;
-      padding-left: 350px;
-    }
-    .font {
-      font-family: SimSun;
-      font-weight: bold;
-      color: rgba(0, 0, 0, 1);
-    }
-    width: 41%;
-    .oneTable {
-      margin-left: 60px;
-      margin-top: 157px;
-      td {
-        width: 355px;
-        padding-top: 62px;
-        padding-left: 140px;
-      }
-    }
-    .twoTable {
-      margin-top: 190px;
-      margin-left: 14px;
-      tr {
-        height: 94px;
-      }
-      td {
-      }
-    }
-    .threeTable {
-      margin-top: 106px;
-      margin-left: 152px;
-      ul {
-        width: 100%;
-        list-style: none;
-        margin-left: 50px;
-        height: 63px;
-      }
-      li {
-        display: inline-block;
-        line-height: 40px;
-
-        width: 236px;
-      }
-    }
-    .fourTable {
-      margin-top: 121px;
-      margin-left: 152px;
-      ul {
-        width: 100%;
-        list-style: none;
-        margin-left: 50px;
-        height: 63px;
-      }
-      li {
-        display: inline-block;
-        line-height: 40px;
-        width: 236px;
-      }
-    }
-    .fiveTable {
-      margin-top: 160px;
-      margin-left: 200px;
-      tr {
-        height: 60px;
-      }
-      td {
-        width: 120px;
-        font-size: center;
-      }
-    }
-    .button {
-      margin-top: 28px;
-      width: 900px;
-      height: 50px;
+      width: 2480px;
+      height: 280px;
       background: #fff;
     }
-  }
+    .logo {
+      width: 200px;
+      height: 130px;
+      background: #fff;
+      float: right;
+      margin-top: 120px;
+      margin-right: 120px;
+    }
+    .headerOne {
+      padding-top: 290px;
+      padding-left: 172px;
+    }
+    .headerTwo {
+      padding-top: 30px;
+      .gender {
+        margin-left: 229px;
+      }
+      .stature {
+        margin-left: 260px;
+      }
+      .weight {
+        margin-left: 180px;
+      }
+      .age {
+        margin-left: 240px;
+      }
+      .time {
+        margin-left: 810px;
+      }
+    }
+    .totalScore {
+      margin-left: 1751px;
+      margin-top: 115px;
+    }
+    .left {
+      width: 57%;
+      float: left;
+      .table {
+        margin-left: 329px;
+      }
+      .oneTable {
+        margin-top: 59px;
+        tr {
+          height: 71px;
+        }
+        td {
+          width: 199px;
+          text-align: center;
+        }
+      }
+      .twoTable {
+        margin-top: 190px;
+        tr {
+          height: 71px;
+        }
+        .zhengchang {
+          text-align: center;
+        }
+        td {
+          .Tspan {
+            height: 6px;
+            background: black;
+            display: block;
+            float: left;
+            margin: 30px 20px 0 0;
+            // padding: 0 10px;
+          }
+          span {
+            line-height: 71px;
+          }
+        }
+      }
+      .fourTable {
+        margin-top: 120px;
+        tr {
+          height: 54px;
+        }
+        td {
+          text-align: center;
+        }
+      }
+      .fiveTable {
+        margin-left: 104px;
+        margin-top: 530px;
+        tr {
+          height: 80px;
+        }
+        td {
+          width: 298px;
+          text-align: center;
+        }
+      }
+      .sixTable {
+        margin-left: 760px;
+        margin-top: 200px;
+        tr {
+          height: 55px;
+        }
+        td {
+          text-align: center;
+        }
+      }
+    }
+    .right {
+      float: right;
+      .Tbodyhidden {
+        position: absolute;
+        top: 870px;
+        padding-left: 350px;
+      }
+      .Tbody {
+        position: absolute;
+        top: 1050px;
+        padding-left: 350px;
+      }
+      .font {
+        font-family: SimSun;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 1);
+      }
+      width: 41%;
+      .oneTable {
+        margin-left: 60px;
+        margin-top: 157px;
+        td {
+          width: 355px;
+          padding-top: 62px;
+          padding-left: 140px;
+        }
+      }
+      .twoTable {
+        margin-top: 190px;
+        margin-left: 14px;
+        tr {
+          height: 94px;
+        }
+        td {
+        }
+      }
+      .threeTable {
+        margin-top: 106px;
+        margin-left: 152px;
+        ul {
+          width: 100%;
+          list-style: none;
+          margin-left: 50px;
+          height: 63px;
+        }
+        li {
+          display: inline-block;
+          line-height: 40px;
 
-  .low {
-    width: 66px;
+          width: 236px;
+        }
+      }
+      .fourTable {
+        margin-top: 121px;
+        margin-left: 152px;
+        ul {
+          width: 100%;
+          list-style: none;
+          margin-left: 50px;
+          height: 63px;
+        }
+        li {
+          display: inline-block;
+          line-height: 40px;
+          width: 236px;
+        }
+      }
+      .fiveTable {
+        margin-top: 160px;
+        margin-left: 200px;
+        tr {
+          height: 60px;
+        }
+        td {
+          width: 120px;
+          font-size: center;
+        }
+      }
+      .button {
+        margin-top: 28px;
+        width: 900px;
+        height: 50px;
+        background: #fff;
+        z-index: 9999;
+      }
+      .btn {
+        margin-top: 26px;
+      }
+    }
+
+    .low {
+      width: 66px;
+    }
+    .normal {
+      width: 200px;
+    }
+    .height {
+      width: 494px;
+    }
   }
-  .normal {
-    width: 200px;
-  }
-  .height {
-    width: 494px;
-  }
-}
 </style>
 
