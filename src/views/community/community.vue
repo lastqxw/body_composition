@@ -104,11 +104,18 @@
     <p>奶牛科学手册站方可以随着社区管理经验的不断丰富，出于维护奶牛科学手册社区氛围和秩序的目的，不断完善本规定。如果奶牛科学手册用户对奶牛科学手册基于本规范做出的处理有异议，可以通过App里“设置”—“反馈”功能向奶牛科学手册进行反馈。</p>
   </div>
 </template>
+<script>
+export default {
+  beforeCreate() {
+    document.title = '奶牛科学手册社区管理规定';
+  },
+};
+</script>
 <style lang="less" scoped>
 .container {
   height: 100vh;
   overflow: auto;
-  background-color: #303030;
+  background-color: #fff;
   padding: 15px;
   h2 {
     font-size: 20px;

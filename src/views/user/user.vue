@@ -62,6 +62,13 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  beforeCreate() {
+    document.title = '奶牛科学手册用户协议';
+  },
+};
+</script>
 <style lang="less" scoped>
 .container {
   height: 100vh;

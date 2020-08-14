@@ -38,9 +38,13 @@ export default {
         console.log(res);
         if (res.data.type == 0) {
           this.data = res.data.data;
+          document.title = res.data.data.artTitle;
         }
       });
     },
+  },
+  beforeCreate() {
+    document.title = '新闻详情';
   },
 };
 </script>
