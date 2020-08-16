@@ -20,14 +20,16 @@
     <template v-if="data.articleImgBanner">
       <img :src="data.articleImgBanner" class="banner">
     </template>
-    <div class="artical" v-html="data.articleContent"></div>
+    <div class="artical" v-html="data.articleContent" @click="imageChgange($event)"></div>
   </div>
 </template>
 <script>
-import dayjs from 'dayjs';
-import { bbsDetails } from '../../api';
+import dayjs from "dayjs";
+import { bbsDetails } from "../../api";
+import { ImagePreview } from "vant";
+import "vant/lib/image-preview/style";
 export default {
-  name: 'home',
+  name: "home",
   data() {
     return {
       data: null,
@@ -46,6 +48,15 @@ export default {
           this.data = res.data.data;
         }
       });
+    },
+    imageChgange(e) {
+      console.log(e);
+      if (e.target.nodeName == "IMG") {
+        console.log(e.target.currentSrc);
+        ImagePreview([e.target.currentSrc]);
+      } else {
+        return;
+      }
     },
   },
 };

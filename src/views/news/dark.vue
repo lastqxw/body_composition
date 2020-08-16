@@ -14,14 +14,16 @@
       <span>{{data.artDate.split(' ')[0]}}</span>
     </div>
     <img :src="data.imgBanner" class="banner">
-    <div class="artical" v-html="data.artContent"></div>
+    <div class="artical" v-html="data.artContent" @click="imageChgange($event)"></div>
   </div>
 </template>
 <script>
-import dayjs from 'dayjs';
-import { articleNews } from '../../api';
+import dayjs from "dayjs";
+import { articleNews } from "../../api";
+import { ImagePreview } from "vant";
+import "vant/lib/image-preview/style";
 export default {
-  name: 'home',
+  name: "home",
   data() {
     return {
       data: null,
@@ -40,6 +42,15 @@ export default {
           this.data = res.data.data;
         }
       });
+    },
+    imageChgange(e) {
+      console.log(e);
+      if (e.target.nodeName == "IMG") {
+        console.log(e.target.currentSrc);
+        ImagePreview([e.target.currentSrc]);
+      } else {
+        return;
+      }
     },
   },
 };

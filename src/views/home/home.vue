@@ -5,14 +5,16 @@
       <span class="left">{{data.createUser}}</span>
       <span>{{data.createTime.split(' ')[0]}}</span>
     </div>
-    <div class="artical" v-html="data.articleContent"></div>
+    <div class="artical" v-html="data.articleContent" @click="imageChgange($event)"></div>
   </div>
 </template>
 <script>
-import dayjs from 'dayjs';
-import { details } from '../../api';
+import dayjs from "dayjs";
+import { details } from "../../api";
+import { ImagePreview } from "vant";
+import "vant/lib/image-preview/style";
 export default {
-  name: 'home',
+  name: "home",
   data() {
     return {
       data: null,
@@ -31,6 +33,15 @@ export default {
           this.data = res.data.data;
         }
       });
+    },
+    imageChgange(e) {
+      console.log(e);
+      if (e.target.nodeName == "IMG") {
+        console.log(e.target.currentSrc);
+        ImagePreview([e.target.currentSrc]);
+      } else {
+        return;
+      }
     },
   },
 };
