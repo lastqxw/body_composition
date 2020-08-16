@@ -143,6 +143,13 @@
     <p>如果你对本隐私政策有任何疑问、意见或建议，可以通过微信联系我们：bijituandui</p>
   </div>
 </template>
+<script>
+export default {
+  beforeCreate() {
+    document.title = '奶牛科学手册隐私政策';
+  },
+};
+</script>
 <style lang="less" scoped>
 .container {
   height: 100vh;
