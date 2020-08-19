@@ -1,8 +1,8 @@
 <template>
-  <div :class="['mainBody',data.isPrintPaper==='1'?'mainBodyOther':'']" :style="bgImg">
-    <div :class="[data.isPrintPaper==='1'?'header':'']"></div>
-    <div :class="[data.isPrintPaper==='1'?'header2':'']"></div>
-    <div :class="[data.isPrintingCompany==='2'?'logo':'']"></div>
+  <div :class="['mainBody',data.isPrintPaper=='1'?'mainBodyOther':'']" :style="bgImg">
+    <div :class="[data.isPrintPaper=='1'?'header':'']"></div>
+    <div :class="[data.isPrintPaper=='1'?'header2':'']"></div>
+    <div :class="[data.isPrintingCompany=='2'?'logo':'']"></div>
     <div class="headerOne">{{data.idNumber}}</div>
     <div class="headerTwo">
       <span class="gender">{{data.sex==1?'男':'女'}}</span>
@@ -36,42 +36,60 @@
           </tr>
         </table>
       </div>
+      <!-- 肌肉脂肪分析 -->
       <div class="table twoTable">
         <table cellspacing="9">
           <tr>
-            <td width="824px"><span :class="['Tspan',data.weight>=0&&data.weight<data.weightLow?'low':data.weight>=data.weightLow&&data.weight<=data.weightHeight?'normal':'height']"></span><span>{{data.weight}}</span></td>
+            <td width="824px">
+              <span class="Tspan" :style="{width:data.weightProgress+'%'}"></span>
+              <span>{{data.weight}}</span>
+            </td>
             <td width="199px" class="zhengchang">{{data.weightRange}}</td>
           </tr>
           <tr>
-            <td width="824px"><span :class="['Tspan',data.skeletalMuscleMass>=0&&data.skeletalMuscleMass<data.skeletalMuscleMassLow?'low':data.skeletalMuscleMass>=data.skeletalMuscleMassLow&&data.skeletalMuscleMass<=data.skeletalMuscleMassHeight?'normal':'height']"></span><span>{{data.skeletalMuscleMass}}</span>
+            <td width="824px">
+              <span class="Tspan" :style="{width:data.skeletalMuscleMassProgress+'%'}"></span>
+              <span>{{data.skeletalMuscleMass}}</span>
             </td>
             <td width="199px" class="zhengchang">{{data.skeletalMuscleMassRange}}</td>
           </tr>
           <tr>
-            <td width="824px"><span :class="['Tspan',data.bodyFatMass>=0&&data.bodyFatMass<data.bodyFatMassLow?'low':data.bodyFatMass>=data.bodyFatMassLow&&data.bodyFatMass<=data.bodyHeight?'normal':'height']"></span><span>{{data.bodyFatMass}}</span>
+            <td width="824px">
+              <span class="Tspan" :style="{width:data.bodyFatMassProgress+'%'}"></span>
+              <span>{{data.bodyFatMass}}</span>
             </td>
             <td width="199px" class="zhengchang">{{data.bodyFatMassRange}}</td>
           </tr>
         </table>
       </div>
+      <!-- 肥胖分析 -->
       <div class="table twoTable" style="margin-top:180px">
         <table cellspacing="9">
           <tr>
-            <td width="824px"><span :class="['Tspan',data.bodyMassIndex>=0&&data.bodyMassIndex<data.bodyMassIndexLow?'low':data.bodyMassIndex>=data.bodyMassIndexLow&&data.bodyMassIndex<=data.bodyMassIndexHeight?'normal':'height']"></span><span>{{data.bodyMassIndex}}</span>
+            <td width="824px">
+              <span class="Tspan" :style="{width:data.bodyMassIndexProgress+'%'}"></span>
+              <span>{{data.bodyMassIndex}}</span>
             </td>
             <td width="199px" class="zhengchang">{{data.bodyMassIndexRange}}</td>
           </tr>
           <tr>
-            <td width="824px"><span :class="['Tspan',data.fatPercentage>=0&&data.fatPercentage<data.fatPercentageLow?'low':data.fatPercentage>=data.fatPercentageLow&&data.fatPercentage<=data.fatPercentageHeight?'normal':'height']"></span><span>{{data.fatPercentage}}</span>
+            <td width="824px">
+              <span class="Tspan" :style="{width:data.fatPercentageProgress+'%'}"></span>
+              <span>{{data.fatPercentage}}</span>
             </td>
             <td width="199px" class="zhengchang">{{data.fatPercentageRange}}</td>
           </tr>
           <tr>
-            <td width="824px"><span :class="['Tspan',data.waistToHipRatio>=0&&data.waistToHipRatio<data.waistToHipRatioLow?'low':data.waistToHipRatio>=data.waistToHipRatioLow&&data.waistToHipRatio<=data.waistToHipRatioHeight?'normal':'height']"></span><span>{{data.waistToHipRatio}}</span></td>
+            <td width="824px">
+              <span class="Tspan" :style="{width:data.waistToHipRatioProgress+'%'}"></span>
+              <span>{{data.waistToHipRatio}}</span>
+            </td>
             <td width="199px" class="zhengchang">{{data.waistToHipRatioRange}}</td>
           </tr>
           <tr>
-            <td width="824px"><span :class="['Tspan',data.visceralFatArea>=0&&data.visceralFatArea<data.visceralFatAreaLow?'low':data.visceralFatArea>=data.visceralFatAreaLow&&data.visceralFatArea<=data.visceralFatAreaHeight?'normal':'height']"></span><span>{{data.visceralFatArea}}</span>
+            <td width="824px">
+              <span class="Tspan" :style="{width:data.visceralFatAreaProgress+'%'}"></span>
+              <span>{{data.visceralFatArea}}</span>
             </td>
             <td width="199px" class="zhengchang">{{data.visceralFatAreaRange}}</td>
           </tr>
@@ -215,9 +233,9 @@
           </tr>
         </table>
       </div>
-      <div :class="[data.isPrintingBodyAge==='2'?'button':'']">
-        <span style="margin-left: 319px;" v-show="data.isPrintingBodyAge==='1'">{{data.waistline}}</span>
-        <span style="margin-left: 90px;" v-show="data.isPrintingBodyAge==='1'">{{data.bodyAge}}</span>
+      <div :class="[data.isPrintingBodyAge=='2'?'button':'']">
+        <span style="margin-left: 319px;" v-show="data.isPrintingBodyAge=='1'">{{data.waistline}}</span>
+        <span style="margin-left: 90px;" v-show="data.isPrintingBodyAge=='1'">{{data.bodyAge}}</span>
       </div>
     </div>
   </div>
@@ -238,112 +256,86 @@ export default {
   created() {
     // this.getData();
     // js注册方法供原生调用;
-    // this.$bridge.registerHandler('getData', (data, responseCallback) => {
-    //   var res = JSON.parse(data);
-    //   this.bgImg.backgroundImage = res.isPrintPaper == 2 ? 'url(' + url + ')' : '#FFF';
-    //   res.impedance = JSON.parse(res.impedance);
-    //   this.data = {
-    //     ...res,
-    //     weightLow: res.weightRange.split('~')[0],
-    //     weightHeight: res.weightRange.split('~')[1],
-    //     skeletalMuscleMassLow: res.skeletalMuscleMassRange.split('~')[0],
-    //     skeletalMuscleMassHeight: res.skeletalMuscleMassRange.split('~')[1],
-    //     bodyFatMassLow: res.bodyFatMassRange.split('~')[0],
-    //     bodyFatMassHeight: res.bodyFatMassRange.split('~')[1],
-    //     bodyMassIndexLow: res.bodyMassIndexRange.split('~')[0],
-    //     bodyMassIndexHeight: res.bodyMassIndexRange.split('~')[1],
-    //     fatPercentageLow: res.fatPercentageRange.split('~')[0],
-    //     fatPercentageHeight: res.fatPercentageRange.split('~')[1],
-    //     waistToHipRatioLow: res.waistToHipRatioRange.split('~')[0],
-    //     waistToHipRatioHeight: res.waistToHipRatioRange.split('~')[1],
-    //     visceralFatAreaLow: res.visceralFatAreaRange.split('~')[0],
-    //     visceralFatAreaHeight: res.visceralFatAreaRange.split('~')[1],
-    //   };
-    //   responseCallback(data);
-    // });
-
+    this.$bridge.registerHandler('getData', (data, responseCallback) => {
+      var res = JSON.parse(data);
+      this.bgImg.backgroundImage = res.isPrintPaper == 2 ? 'url(' + url + ')' : '#FFF';
+      res.impedance = res.impedance.split("'")[0].split('[')[1].split(']')[0].split(',');
+      this.data = { ...res };
+      responseCallback(data);
+    });
     //模拟数据
-    let res = {
-      age: 25,
-      basalMetabolism: 2006.1,
-      bodyAge: 23.3,
-      bodyFatMass: -0.8,
-      bodyFatMassRange: '0.1~0.1',
-      bodyMassIndex: 27.5,
-      bodyMassIndexRange: '18.5~24.0',
-      bodySizeDeterminationStatus: 9,
-      dailyCarbohydrateIntake: 250.0,
-      dailyEnergyIntake: 1786.7,
-      dailyFatIntake: 55.0,
-      dailyOperation: 39.2,
-      dailyProteinIntake: 77.8,
-      date: '2020-08-10 20:39:21',
-      developedLowerLimbsStatus: 2,
-      developedUpperLimbsStatus: 2,
-      fatControl: 1.0,
-      fatPercentage: 0.0,
-      fatPercentageRange: '10.0~20.0',
-      fatStatus: 1,
-      height: 165.0,
-      highExercise: 7.8,
-      idNumber: '1343357715',
-      impedance:
-        '[46.91,46.94,2.3,46.58,46.58,49.3,49.28,2.27,48.98,48.84,24.18,24.165,0.4,24.93,24.13,100.33]',
-      inorganicSalt: 15.23,
-      inorganicSaltRange: '0.4~0.48',
-      inorganicSaltStatus: 2,
-      isPrintPaper: 2,
-      isPrintingBodyAge: 2,
-      isPrintingCompany: 2,
-      leanBodyMass: 75.7,
-      leftArmMuscle: 9.54,
-      leftLegMuscle: 12.25,
-      lowExercise: 15.7,
-      lowerLimbBalanceStatus: 1,
-      moderateExercise: 11.8,
-      muscleControl: -59.9,
-      muscleMass: 60.5,
-      protein: 8.8,
-      proteinRange: '0.1~0.1',
-      proteinStatus: 2,
-      rightArmMuscle: 9.54,
-      rightLegMuscles: 12.2,
-      sex: 1,
-      skeletalMuscleMass: 26.3,
-      skeletalMuscleMassRange: '0.3~0.4',
-      targetWeight: 15.9,
-      totalBodyScore: 83.0,
-      totalMoisture: 51.7,
-      totalMoistureRange: '0.4~0.5',
-      trunkMuscles: -12.35,
-      upperLimbBalanceStatus: 1,
-      visceralFatArea: 73.2,
-      visceralFatAreaRange: '0.0~100.0',
-      waistToHipRatio: 0.82,
-      waistToHipRatioRange: '0.75~0.85',
-      waistline: 84.68,
-      weight: 74.9,
-      weightControl: -59.0,
-      weightRange: '18.7~25.3',
-    };
-    res.impedance = JSON.parse(res.impedance);
-    this.data = {
-      ...res,
-      weightLow: res.weightRange.split('~')[0],
-      weightHeight: res.weightRange.split('~')[1],
-      skeletalMuscleMassLow: res.skeletalMuscleMassRange.split('~')[0],
-      skeletalMuscleMassHeight: res.skeletalMuscleMassRange.split('~')[1],
-      bodyFatMassLow: res.bodyFatMassRange.split('~')[0],
-      bodyFatMassHeight: res.bodyFatMassRange.split('~')[1],
-      bodyMassIndexLow: res.bodyMassIndexRange.split('~')[0],
-      bodyMassIndexHeight: res.bodyMassIndexRange.split('~')[1],
-      fatPercentageLow: res.fatPercentageRange.split('~')[0],
-      fatPercentageHeight: res.fatPercentageRange.split('~')[1],
-      waistToHipRatioLow: res.waistToHipRatioRange.split('~')[0],
-      waistToHipRatioHeight: res.waistToHipRatioRange.split('~')[1],
-      visceralFatAreaLow: res.visceralFatAreaRange.split('~')[0],
-      visceralFatAreaHeight: res.visceralFatAreaRange.split('~')[1],
-    };
+    // let res = {
+    //   age: 29,
+    //   basalMetabolism: 1525.9,
+    //   bodyAge: 34.0,
+    //   bodyFatMass: 7.1,
+    //   bodyFatMassProgress: 6,
+    //   bodyFatMassRange: '9.4~11.6',
+    //   bodyMassIndex: 19.1,
+    //   bodyMassIndexProgress: 22,
+    //   bodyMassIndexRange: '18.5~24.0',
+    //   bodySizeDeterminationStatus: 8,
+    //   dailyCarbohydrateIntake: 250.0,
+    //   dailyEnergyIntake: 1611.1,
+    //   dailyFatIntake: 55.0,
+    //   dailyOperation: 19.6,
+    //   dailyProteinIntake: 77.8,
+    //   date: '2020-08-18 16:51:21',
+    //   developedLowerLimbsStatus: 2,
+    //   developedUpperLimbsStatus: 2,
+    //   fatControl: 3.4,
+    //   fatPercentage: 0.1,
+    //   fatPercentageProgress: 7,
+    //   fatPercentageRange: '10.0~20.0',
+    //   fatStatus: 1,
+    //   height: 178.0,
+    //   highExercise: 4.5,
+    //   idNumber: '1819191663',
+    //   impedance:
+    //     '[400.2,399.4,27.8,270.8,276.5,356.0,359.8,23.5,245.3,249.9,318.0,325.0,19.4,223.0,226.3,629.0]',
+    //   inorganicSalt: 3.76,
+    //   inorganicSaltRange: '3.64~4.44',
+    //   inorganicSaltStatus: 2,
+    //   isPrintPaper: 2,
+    //   isPrintingBodyAge: 2,
+    //   isPrintingCompany: 2,
+    //   leanBodyMass: 53.5,
+    //   leftArmMuscle: 2.57,
+    //   leftLegMuscle: 9.12,
+    //   lowExercise: 8.4,
+    //   lowerLimbBalanceStatus: 1,
+    //   moderateExercise: 6.5,
+    //   muscleControl: 5.5,
+    //   muscleMass: 49.7,
+    //   protein: 10.5,
+    //   proteinRange: '10.6~13.0',
+    //   proteinStatus: 1,
+    //   rightArmMuscle: 2.6,
+    //   rightLegMuscles: 9.18,
+    //   sex: 1,
+    //   skeletalMuscleMass: 29.8,
+    //   skeletalMuscleMassProgress: 21,
+    //   skeletalMuscleMassRange: '29.9~36.5',
+    //   targetWeight: 69.5,
+    //   totalBodyScore: 76.9,
+    //   totalMoisture: 39.2,
+    //   totalMoistureRange: '39.1~47.7',
+    //   trunkMuscles: 22.62,
+    //   upperLimbBalanceStatus: 1,
+    //   visceralFatArea: 69.5,
+    //   visceralFatAreaProgress: 31,
+    //   visceralFatAreaRange: '0.0~100.0',
+    //   waistToHipRatio: 0.81,
+    //   waistToHipRatioProgress: 29,
+    //   waistToHipRatioRange: '0.75~0.85',
+    //   waistline: 71.69,
+    //   weight: 60.6,
+    //   weightControl: 8.9,
+    //   weightProgress: 22,
+    //   weightRange: '59.2~80.2',
+    // };
+    // res.impedance = res.impedance.split("'")[0].split('[')[1].split(']')[0].split(',');
+    // this.data = { ...res };
   },
   methods: {
     // JS调用原生方法
@@ -386,20 +378,24 @@ export default {
   }
   .headerTwo {
     padding-top: 30px;
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
     .gender {
-      margin-left: 229px;
+      margin-left: 210px;
     }
     .stature {
-      margin-left: 260px;
+      margin-left: 280px;
     }
     .weight {
       margin-left: 180px;
     }
     .age {
-      margin-left: 240px;
+      margin-left: 194px;
     }
     .time {
-      margin-left: 810px;
+      margin-left: 800px;
     }
   }
   .totalScore {
@@ -445,7 +441,7 @@ export default {
       }
     }
     .fourTable {
-      margin-top: 120px;
+      margin-top: 100px;
       tr {
         height: 54px;
       }
@@ -467,7 +463,7 @@ export default {
     }
     .sixTable {
       margin-left: 760px;
-      margin-top: 190px;
+      margin-top: 183px;
       tr {
         height: 60px;
       }
@@ -505,7 +501,7 @@ export default {
     }
     .twoTable {
       margin-top: 190px;
-      margin-left: 14px;
+      margin-left: 22px;
       tr {
         height: 94px;
       }
@@ -518,7 +514,7 @@ export default {
       ul {
         width: 100%;
         list-style: none;
-        margin-left: 50px;
+        margin-left: 60px;
         height: 63px;
       }
       li {
@@ -530,7 +526,7 @@ export default {
     }
     .fourTable {
       margin-top: 121px;
-      margin-left: 152px;
+      margin-left: 160px;
       ul {
         width: 100%;
         list-style: none;
