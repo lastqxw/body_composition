@@ -24,12 +24,12 @@
   </div>
 </template>
 <script>
-import dayjs from "dayjs";
-import { bbsDetails } from "../../api";
-import { ImagePreview } from "vant";
-import "vant/lib/image-preview/style";
+import dayjs from 'dayjs';
+import { bbsDetails } from '../../api';
+import { ImagePreview } from 'vant';
+import 'vant/lib/image-preview/style';
 export default {
-  name: "home",
+  name: 'home',
   data() {
     return {
       data: null,
@@ -52,9 +52,9 @@ export default {
     },
     imageChgange(e) {
       console.log(e);
-      if (e.target.nodeName == "IMG") {
-        console.log(e.target.currentSrc);
-        ImagePreview([e.target.currentSrc]);
+      if (e.target.nodeName == 'IMG') {
+        console.log(e.target.src);
+        ImagePreview([e.target.currentSrc || e.target.src]);
       } else {
         return;
       }

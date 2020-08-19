@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-01 23:34:58
- * @LastEditTime: 2020-08-01 23:40:58
+ * @LastEditTime: 2020-08-19 22:35:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ido85-pay_web_site-pay_web_site-paymentSystem/src/views/news/dark.vue
@@ -18,12 +18,12 @@
   </div>
 </template>
 <script>
-import dayjs from "dayjs";
-import { articleNews } from "../../api";
-import { ImagePreview } from "vant";
-import "vant/lib/image-preview/style";
+import dayjs from 'dayjs';
+import { articleNews } from '../../api';
+import { ImagePreview } from 'vant';
+import 'vant/lib/image-preview/style';
 export default {
-  name: "home",
+  name: 'home',
   data() {
     return {
       data: null,
@@ -46,9 +46,9 @@ export default {
     },
     imageChgange(e) {
       console.log(e);
-      if (e.target.nodeName == "IMG") {
+      if (e.target.nodeName == 'IMG') {
         console.log(e.target.currentSrc);
-        ImagePreview([e.target.currentSrc]);
+        ImagePreview([e.target.currentSrc || e.target.src]);
       } else {
         return;
       }
