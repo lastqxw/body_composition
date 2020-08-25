@@ -26,7 +26,5 @@ export default {
   color: #2c3e50;
   font-size: 12px !important;
   background-color: #fff;
-  height: 3508px;
-  width: 2480px;
 }
 </style>

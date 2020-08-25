@@ -20,4 +20,18 @@ module.exports = {
       .set("@", resolve("src")) // key,value自行定义，比如.set('@@', resolve('src/components'))
       .set("_c", resolve("src/components"));
   },
+  devServer: {
+        // before: mockdata,
+        // 项目开发环境的接口代理
+        proxy: {
+            '/sso': {
+                target: 'http://118.190.135.211:9999',
+                ws: true,
+                changeOrigin: true,
+                pathRewrite: {
+                    "^/sso": ''
+                }
+            },
+        }
+    }
 };
