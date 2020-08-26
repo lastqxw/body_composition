@@ -234,15 +234,14 @@
         </table>
       </div>
       <div style="margin-top:15px">
-        <span style="margin-left: 263px;" v-show="data.isPrintingBodyAge=='1'">{{data.waistline}}</span>
-        <span style="margin-left: 158px;" v-show="data.isPrintingBodyAge=='1'">{{data.bodyAge}}</span>
+        <span style="margin-left: 270px;" v-show="data.isPrintingBodyAge=='1'">{{data.waistline}}</span>
+        <span style="margin-left: 163px;" v-show="data.isPrintingBodyAge=='1'">{{data.bodyAge}}</span>
       </div>
     </div>
   </div>
 </template>
 <script>
 import dayjs from 'dayjs';
-const url = require('../../../public/backgroundImg.png');
 import noLogo_haveFooter from '@/assets/noLogo_haveFooter.jpg';
 import haveLogo_haveFooter from '@/assets/haveLogo_haveFooter.jpg';
 import noLogo_noFooter from '@/assets/noLogo_noFooter.jpg';
@@ -257,105 +256,103 @@ export default {
       haveLogo_noFooter,
       data: null,
       bgImg: {
-        backgroundImage: 'url(' + url + ')',
+        backgroundImage: 'url(' + haveLogo_haveFooter + ')',
       },
     };
   },
   created() {
     // this.getData();
     // js注册方法供原生调用;
-    this.$bridge.registerHandler('getData', (data, responseCallback) => {
-      var res = JSON.parse(data);
-      this.bgImg.backgroundImage = res.isPrintPaper == 2 ? 'url(' + url + ')' : '#FFF';
-      res.impedance = res.impedance.split("'")[0].split('[')[1].split(']')[0].split(',');
-      this.data = { ...res };
-      this.getBg();
-      responseCallback(data);
-    });
+    // this.$bridge.registerHandler('getData', (data, responseCallback) => {
+    //   var res = JSON.parse(data);
+    //   res.impedance = res.impedance.split("'")[0].split('[')[1].split(']')[0].split(',');
+    //   this.data = { ...res };
+    //   this.getBg();
+    //   responseCallback(data);
+    // });
     // }
     //模拟数据
-    // let res = {
-    //   age: 44,
-    //   basalMetabolism: 1440.9,
-    //   bodyAge: 51.2,
-    //   bodyFatMass: 51.0,
-    //   bodyFatMassProgress: 90,
-    //   bodyFatMassRange: '7.0~14.0',
-    //   bodyMassIndex: 31.8,
-    //   bodyMassIndexProgress: 55,
-    //   bodyMassIndexRange: '18.5~24.0',
-    //   bodySizeDeterminationStatus: 3,
-    //   companyName: 'hhhhh公司',
-    //   dailyCarbohydrateIntake: 217.0,
-    //   dailyEnergyIntake: 1509.1,
-    //   dailyFatIntake: 53.0,
-    //   dailyOperation: -0.3,
-    //   dailyProteinIntake: 72.4,
-    //   date: '2020-08-19 09:37:06',
-    //   developedLowerLimbsStatus: 2,
-    //   developedUpperLimbsStatus: 2,
-    //   fatControl: -40.5,
-    //   fatPercentage: 50.7,
-    //   fatPercentageProgress: 79,
-    //   fatPercentageRange: '10.0~20.0',
-    //   fatStatus: 3,
-    //   height: 178.0,
-    //   highExercise: -0.1,
-    //   idNumber: '0000021444',
-    //   impedance:
-    //     '[459.9,382.4,28.0,466.4,461.4,494.0,407.8,21.8,497.3,491.4,473.6,391.7,19.2,481.0,474.1,965.4]',
-    //   inorganicSalt: 3.5,
-    //   inorganicSaltRange: '3.64~4.44',
-    //   inorganicSaltStatus: 1,
-    //   isPrintPaper: 2,
-    //   isPrintingBodyAge: 1,
-    //   isPrintingCompany: 1,
-    //   leanBodyMass: 49.6,
-    //   leftArmMuscle: 2.96,
-    //   leftLegMuscle: 7.11,
-    //   lowExercise: -0.1,
-    //   lowerLimbBalanceStatus: 1,
-    //   moderateExercise: -0.1,
-    //   muscleControl: 9.1,
-    //   muscleMass: 46.1,
-    //   protein: 9.8,
-    //   proteinRange: '10.6~13.0',
-    //   proteinStatus: 1,
-    //   rightArmMuscle: 2.56,
-    //   rightLegMuscles: 7.09,
-    //   sex: 1,
-    //   skeletalMuscleMass: 27.4,
-    //   skeletalMuscleMassProgress: 16,
-    //   skeletalMuscleMassRange: '29.9~36.5',
-    //   targetWeight: 69.2,
-    //   totalBodyScore: 46.4,
-    //   totalMoisture: 36.3,
-    //   totalMoistureRange: '39.1~47.7',
-    //   trunkMuscles: 21.34,
-    //   upperLimbBalanceStatus: 2,
-    //   visceralFatArea: 197.8,
-    //   visceralFatAreaProgress: 49,
-    //   visceralFatAreaRange: '0.0~100.0',
-    //   waistToHipRatio: 0.97,
-    //   waistToHipRatioProgress: 52,
-    //   waistToHipRatioRange: '0.75~0.85',
-    //   waistline: 108.81,
-    //   weight: 100.6,
-    //   weightControl: -31.4,
-    //   weightProgress: 49,
-    //   weightRange: '59.2~80.2',
-    // };
-    // res.impedance = res.impedance.split("'")[0].split('[')[1].split(']')[0].split(',');
-    // this.data = { ...res };
-    // this.getBg();
+    let res = {
+      age: 25,
+      basalMetabolism: '1248.8',
+      bodyAge: '31.6',
+      bodyFatMass: '34.2',
+      bodyFatMassProgress: 64,
+      bodyFatMassRange: '12.6~19.8',
+      bodyMassIndex: '26.2',
+      bodyMassIndexProgress: 41,
+      bodyMassIndexRange: '18.5~24.0',
+      bodySizeDeterminationStatus: 3,
+      dailyCarbohydrateIntake: '187.0',
+      dailyEnergyIntake: '1278.3',
+      dailyFatIntake: '48.0',
+      dailyOperation: '-12.0',
+      dailyProteinIntake: '64.4',
+      date: '2020-08-26 09:57:37',
+      developedLowerLimbsStatus: 2,
+      developedUpperLimbsStatus: 2,
+      fatControl: '-18.0',
+      fatPercentage: '45.7',
+      fatPercentageProgress: 50,
+      fatPercentageRange: '21.0~33.0',
+      fatStatus: 3,
+      height: '169.0',
+      highExercise: '-2.8',
+      idNumber: '1',
+      impedance:
+        '[391.3,395.3,18.9,391.5,393.7,489.6,491.5,23.4,489.8,487.3,216.5,225.7,3.8,223.3,217.0,1002.5]',
+      inorganicSalt: '2.92',
+      inorganicSaltRange: '2.81~3.43',
+      inorganicSaltStatus: 2,
+      isPrintPaper: 2,
+      isPrintingBodyAge: 1,
+      isPrintingCompany: 2,
+      leanBodyMass: '40.7',
+      leftArmMuscle: '2.05',
+      leftLegMuscle: '5.83',
+      lowExercise: '-5.2',
+      lowerLimbBalanceStatus: 1,
+      moderateExercise: '-4.0',
+      muscleControl: '+3.1',
+      muscleMass: '37.8',
+      protein: '8.0',
+      proteinRange: '7.9~9.7',
+      proteinStatus: 2,
+      rightArmMuscle: '2.06',
+      rightLegMuscles: '5.82',
+      sex: 2,
+      skeletalMuscleMass: '22.0',
+      skeletalMuscleMassProgress: 18,
+      skeletalMuscleMassRange: '23.0~28.1',
+      targetWeight: '+59.9',
+      totalBodyScore: '55.2',
+      totalMoisture: '29.8',
+      totalMoistureRange: '28.8~35.2',
+      trunkMuscles: '17.33',
+      upperLimbBalanceStatus: 1,
+      visceralFatArea: '129.1',
+      visceralFatAreaProgress: 44,
+      visceralFatAreaRange: '0.0~80.0',
+      waistToHipRatio: '0.93',
+      waistToHipRatioProgress: 54,
+      waistToHipRatioRange: '0.70~0.80',
+      waistline: '87.76',
+      weight: '74.9',
+      weightControl: '-15.0',
+      weightProgress: 40,
+      weightRange: '51.0~69.0',
+    };
+    res.impedance = res.impedance.split("'")[0].split('[')[1].split(']')[0].split(',');
+    this.data = { ...res };
+    this.getBg();
   },
   methods: {
     // JS调用原生方法
     getBg() {
       let url = '';
-      // isPrintPaper ==1  不显示logo
+      // isPrintingCompany ==1  不显示logo
       // isPrintingBodyAge == 2不显示角标
-      if (this.data.isPrintPaper == 1) {
+      if (this.data.isPrintingCompany == 1) {
         if (this.data.isPrintingBodyAge == 2) {
           url = this.noLogo_noFooter;
         } else {
@@ -420,7 +417,7 @@ export default {
       margin-left: 280px;
     }
     .weight {
-      margin-left: 180px;
+      margin-left: 140px;
     }
     .age {
       margin-left: 194px;
@@ -434,7 +431,7 @@ export default {
     margin-top: 115px;
   }
   .left {
-    width: 57%;
+    width: 55.5%;
     float: left;
     .table {
       margin-left: 329px;
@@ -463,16 +460,16 @@ export default {
           background: black;
           display: block;
           float: left;
-          margin: 30px 20px 0 0;
+          margin: 10px 20px 0 0;
           // padding: 0 10px;
         }
         span {
-          line-height: 71px;
+          line-height: 12px;
         }
       }
     }
     .fourTable {
-      margin-top: 100px;
+      margin-top: 115px;
       tr {
         height: 54px;
       }
@@ -483,7 +480,7 @@ export default {
     }
     .fiveTable {
       margin-left: 104px;
-      margin-top: 530px;
+      margin-top: 545px;
       tr {
         height: 80px;
       }
@@ -494,7 +491,7 @@ export default {
     }
     .sixTable {
       margin-left: 760px;
-      margin-top: 183px;
+      margin-top: 180px;
       tr {
         height: 60px;
       }
