@@ -1,5 +1,5 @@
 <template>
-  <div :class="['mainBody']" :style="bgImg">
+  <div :class="['mainBody']" :style="data.isPrintPaper=='2'?bgImg:''">
     <div :class="[data.isPrintPaper=='1'?'header':'header1']">
       <div class="logo" v-show="data.isPrintingCompany=='1'">{{data.companyName}}</div>
     </div>
@@ -233,9 +233,9 @@
           </tr>
         </table>
       </div>
-      <div style="margin-top:18px">
+      <div style="margin-top:15px">
         <span style="margin-left: 263px;" v-show="data.isPrintingBodyAge=='1'">{{data.waistline}}</span>
-        <span style="margin-left: 140px;" v-show="data.isPrintingBodyAge=='1'">{{data.bodyAge}}</span>
+        <span style="margin-left: 158px;" v-show="data.isPrintingBodyAge=='1'">{{data.bodyAge}}</span>
       </div>
     </div>
   </div>
@@ -307,7 +307,7 @@ export default {
     //   inorganicSalt: 3.5,
     //   inorganicSaltRange: '3.64~4.44',
     //   inorganicSaltStatus: 1,
-    //   isPrintPaper: 1,
+    //   isPrintPaper: 2,
     //   isPrintingBodyAge: 1,
     //   isPrintingCompany: 1,
     //   leanBodyMass: 49.6,
