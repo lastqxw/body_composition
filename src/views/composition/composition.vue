@@ -7,7 +7,7 @@
  * @FilePath: /ido85-pay_web_site-pay_web_site-paymentSystem/src/views/composition/composition.vue
  -->
 <template>
-  <div class="mainBody">
+  <div class="mainBody" v-if="data">
     <div class="title">{{data.title}}</div>
     <div class="subTitle">
       <span :class="['notice']">{{data.noticeType==1?'园区公告':'系统公告'}}</span>
@@ -25,12 +25,18 @@ export default {
   data() {
     return {
       data: null,
-      noticeId: '3876093818995712',
-      tenantId: 111111,
-      userId: 111111,
+      noticeId: '',
+      tenantId: '',
+      userId: '',
     };
   },
   created() {
+    // let
+    console.log(this.$route.params);
+    let params = this.$route.params;
+    this.noticeId = params.noticeId;
+    this.tenantId = params.tenantId;
+    this.userId = params.userId;
     this.getDetails();
   },
   methods: {

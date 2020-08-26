@@ -6,7 +6,7 @@ export default new Router({
   // mode: "history",
   routes: [
     {
-      path: "/",
+      path: "/:userId/:tenantId/:noticeId",
       name: "index",
       // component:resolve => require(['@/views/conferenceRoom/conferenceRoom.vue'], resolve)
       component: resolve => require(["@/views/composition/composition.vue"], resolve)
