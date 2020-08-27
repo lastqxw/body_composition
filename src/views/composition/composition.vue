@@ -127,7 +127,7 @@
           <tr>
             <td>{{data.dailyEnergyIntake}}kcal</td>
           </tr>
-          <tr>
+          <tr style="height:54px">
             <td>{{data.dailyProteinIntake}}g</td>
           </tr>
           <tr>
@@ -263,88 +263,88 @@ export default {
   created() {
     // this.getData();
     // js注册方法供原生调用;
-    // this.$bridge.registerHandler('getData', (data, responseCallback) => {
-    //   var res = JSON.parse(data);
-    //   res.impedance = res.impedance.split("'")[0].split('[')[1].split(']')[0].split(',');
-    //   this.data = { ...res };
-    //   this.getBg();
-    //   responseCallback(data);
-    // });
+    this.$bridge.registerHandler('getData', (data, responseCallback) => {
+      var res = JSON.parse(data);
+      res.impedance = res.impedance.split("'")[0].split('[')[1].split(']')[0].split(',');
+      this.data = { ...res };
+      this.getBg();
+      responseCallback(data);
+    });
     // }
     //模拟数据
-    let res = {
-      age: 25,
-      basalMetabolism: '1248.8',
-      bodyAge: '31.6',
-      bodyFatMass: '34.2',
-      bodyFatMassProgress: 64,
-      bodyFatMassRange: '12.6~19.8',
-      bodyMassIndex: '26.2',
-      bodyMassIndexProgress: 41,
-      bodyMassIndexRange: '18.5~24.0',
-      bodySizeDeterminationStatus: 3,
-      dailyCarbohydrateIntake: '187.0',
-      dailyEnergyIntake: '1278.3',
-      dailyFatIntake: '48.0',
-      dailyOperation: '-12.0',
-      dailyProteinIntake: '64.4',
-      date: '2020-08-26 09:57:37',
-      developedLowerLimbsStatus: 2,
-      developedUpperLimbsStatus: 2,
-      fatControl: '-18.0',
-      fatPercentage: '45.7',
-      fatPercentageProgress: 50,
-      fatPercentageRange: '21.0~33.0',
-      fatStatus: 3,
-      height: '169.0',
-      highExercise: '-2.8',
-      idNumber: '1',
-      impedance:
-        '[391.3,395.3,18.9,391.5,393.7,489.6,491.5,23.4,489.8,487.3,216.5,225.7,3.8,223.3,217.0,1002.5]',
-      inorganicSalt: '2.92',
-      inorganicSaltRange: '2.81~3.43',
-      inorganicSaltStatus: 2,
-      isPrintPaper: 2,
-      isPrintingBodyAge: 1,
-      isPrintingCompany: 2,
-      leanBodyMass: '40.7',
-      leftArmMuscle: '2.05',
-      leftLegMuscle: '5.83',
-      lowExercise: '-5.2',
-      lowerLimbBalanceStatus: 1,
-      moderateExercise: '-4.0',
-      muscleControl: '+3.1',
-      muscleMass: '37.8',
-      protein: '8.0',
-      proteinRange: '7.9~9.7',
-      proteinStatus: 2,
-      rightArmMuscle: '2.06',
-      rightLegMuscles: '5.82',
-      sex: 2,
-      skeletalMuscleMass: '22.0',
-      skeletalMuscleMassProgress: 18,
-      skeletalMuscleMassRange: '23.0~28.1',
-      targetWeight: '+59.9',
-      totalBodyScore: '55.2',
-      totalMoisture: '29.8',
-      totalMoistureRange: '28.8~35.2',
-      trunkMuscles: '17.33',
-      upperLimbBalanceStatus: 1,
-      visceralFatArea: '129.1',
-      visceralFatAreaProgress: 44,
-      visceralFatAreaRange: '0.0~80.0',
-      waistToHipRatio: '0.93',
-      waistToHipRatioProgress: 54,
-      waistToHipRatioRange: '0.70~0.80',
-      waistline: '87.76',
-      weight: '74.9',
-      weightControl: '-15.0',
-      weightProgress: 40,
-      weightRange: '51.0~69.0',
-    };
-    res.impedance = res.impedance.split("'")[0].split('[')[1].split(']')[0].split(',');
-    this.data = { ...res };
-    this.getBg();
+    // let res = {
+    //   age: 25,
+    //   basalMetabolism: '1248.8',
+    //   bodyAge: '31.6',
+    //   bodyFatMass: '34.2',
+    //   bodyFatMassProgress: 64,
+    //   bodyFatMassRange: '12.6~19.8',
+    //   bodyMassIndex: '26.2',
+    //   bodyMassIndexProgress: 41,
+    //   bodyMassIndexRange: '18.5~24.0',
+    //   bodySizeDeterminationStatus: 3,
+    //   dailyCarbohydrateIntake: '187.0',
+    //   dailyEnergyIntake: '1278.3',
+    //   dailyFatIntake: '48.0',
+    //   dailyOperation: '-12.0',
+    //   dailyProteinIntake: '64.4',
+    //   date: '2020-08-26 09:57:37',
+    //   developedLowerLimbsStatus: 2,
+    //   developedUpperLimbsStatus: 2,
+    //   fatControl: '-18.0',
+    //   fatPercentage: '45.7',
+    //   fatPercentageProgress: 50,
+    //   fatPercentageRange: '21.0~33.0',
+    //   fatStatus: 3,
+    //   height: '169.0',
+    //   highExercise: '-2.8',
+    //   idNumber: '1',
+    //   impedance:
+    //     '[391.3,395.3,18.9,391.5,393.7,489.6,491.5,23.4,489.8,487.3,216.5,225.7,3.8,223.3,217.0,1002.5]',
+    //   inorganicSalt: '2.92',
+    //   inorganicSaltRange: '2.81~3.43',
+    //   inorganicSaltStatus: 2,
+    //   isPrintPaper: 2,
+    //   isPrintingBodyAge: 1,
+    //   isPrintingCompany: 2,
+    //   leanBodyMass: '40.7',
+    //   leftArmMuscle: '2.05',
+    //   leftLegMuscle: '5.83',
+    //   lowExercise: '-5.2',
+    //   lowerLimbBalanceStatus: 1,
+    //   moderateExercise: '-4.0',
+    //   muscleControl: '+3.1',
+    //   muscleMass: '37.8',
+    //   protein: '8.0',
+    //   proteinRange: '7.9~9.7',
+    //   proteinStatus: 2,
+    //   rightArmMuscle: '2.06',
+    //   rightLegMuscles: '5.82',
+    //   sex: 2,
+    //   skeletalMuscleMass: '22.0',
+    //   skeletalMuscleMassProgress: 18,
+    //   skeletalMuscleMassRange: '23.0~28.1',
+    //   targetWeight: '+59.9',
+    //   totalBodyScore: '55.2',
+    //   totalMoisture: '29.8',
+    //   totalMoistureRange: '28.8~35.2',
+    //   trunkMuscles: '17.33',
+    //   upperLimbBalanceStatus: 1,
+    //   visceralFatArea: '129.1',
+    //   visceralFatAreaProgress: 44,
+    //   visceralFatAreaRange: '0.0~80.0',
+    //   waistToHipRatio: '0.93',
+    //   waistToHipRatioProgress: 54,
+    //   waistToHipRatioRange: '0.70~0.80',
+    //   waistline: '87.76',
+    //   weight: '74.9',
+    //   weightControl: '-15.0',
+    //   weightProgress: 40,
+    //   weightRange: '51.0~69.0',
+    // };
+    // res.impedance = res.impedance.split("'")[0].split('[')[1].split(']')[0].split(',');
+    // this.data = { ...res };
+    // this.getBg();
   },
   methods: {
     // JS调用原生方法
@@ -469,7 +469,7 @@ export default {
       }
     }
     .fourTable {
-      margin-top: 115px;
+      margin-top: 110px;
       tr {
         height: 54px;
       }
@@ -480,7 +480,7 @@ export default {
     }
     .fiveTable {
       margin-left: 104px;
-      margin-top: 545px;
+      margin-top: 540px;
       tr {
         height: 80px;
       }
