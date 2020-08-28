@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-23 15:58:32
- * @LastEditTime: 2020-08-25 15:50:53
+ * @LastEditTime: 2020-08-27 18:47:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ido85-pay_web_site-pay_web_site-paymentSystem/src/views/composition/composition.vue
@@ -12,7 +12,7 @@
     <div class="subTitle">
       <span :class="['notice']">{{data.noticeType==1?'园区公告':'系统公告'}}</span>
       <span class="source">作者:{{data.author}}</span>
-      <span class="time">{{data.releaseTime.split("+")[0].replace('T',' ')}}</span>
+      <span class="time">{{data.releaseTime?data.releaseTime.split("+")[0].replace('T',' ') :''}}</span>
     </div>
     <div class="action" v-html="data.content"></div>
   </div>
