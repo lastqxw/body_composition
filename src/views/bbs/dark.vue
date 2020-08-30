@@ -2,7 +2,7 @@
   <div class="container" v-if="data">
     <div class="title">{{data.articleTitle}}</div>
     <div class="subtitle">
-      <div class="left">
+      <div class="left" @click="imageChgange($event)">
         <img :src="data.userAvatarurl" alt="" srcset="">
       </div>
       <div class="right">

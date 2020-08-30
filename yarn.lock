@@ -7966,10 +7966,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vant@^2.10.2:
-  version "2.10.2"
-  resolved "https://registry.yarnpkg.com/vant/-/vant-2.10.2.tgz#f792d8583315c932f4a70051c122904b9c6e5002"
-  integrity sha512-lIM50V4uzGFHfG7FlQG0KAHpIJFApnUk2jE2GhFsFfWE1ff3L9D9ZcK37sgwZMpnRFf6bhwJf3AZxs9PPdHGVg==
+vant@^2.10.3:
+  version "2.10.3"
+  resolved "https://registry.yarnpkg.com/vant/-/vant-2.10.3.tgz#f8b7a32a91f5ee680454ac115b5be4683fd203d1"
+  integrity sha512-OiQxmMmILGPfVd7FX+B90pf43e+nF129fGz6nxhS5c1kK1WBRmed/bYvHkpR9yZtjsTEtVmvt48t5oog6YA6+A==
   dependencies:
     "@babel/runtime" "7.x"
     "@vant/icons" "1.2.5"
