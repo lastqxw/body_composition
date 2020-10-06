@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-19 21:58:16
- * @LastEditTime: 2020-08-19 22:35:42
- * @LastEditors: your name
+ * @LastEditTime: 2020-09-24 10:58:31
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ido85-pay_web_site-pay_web_site-paymentSystem/src/views/home/home.vue
 -->
@@ -65,7 +65,7 @@ export default {
   height: 100vh;
   overflow: auto;
   overflow: auto;
-  background-color: #fff;
+  background-color: transparent;
   overflow-x: hidden;
   img {
     width: 100%;
